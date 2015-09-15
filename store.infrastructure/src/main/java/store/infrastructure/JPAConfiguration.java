@@ -27,7 +27,8 @@ public class JPAConfiguration {
 		em.setPackagesToScan(new String[]
 		{ 
 		  "store.model.client",
-		  "store.model.common"
+		  "store.model.common",
+		  "store.model.product"
 		});
 		JpaVendorAdapter vendorAdapter =
 		new HibernateJpaVendorAdapter();
