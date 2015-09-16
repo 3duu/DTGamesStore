@@ -24,7 +24,6 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
 		resolver.setContentType(ViewConstants.MEDIA_TYPE_HTML);
-		//resolver.set
 		return resolver;
 	}
 	

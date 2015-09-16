@@ -15,37 +15,60 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#">Link</a></li>
+	        <li class="active"><a href="#">Quem somos <span class="sr-only">(current)</span></a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consoles <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">PlayStation 4</a></li>
+	            <li><a href="#">X-BOX One</a></li>
+	            <li><a href="#">Wii U</a></li>
+	            <li role="OutrosConsoles" class="divider"></li>
+	            <li><a href="#">PlayStation 3</a></li>
+	            <li><a href="#">X-BOX 360</a></li>
+	            <li><a href="#">Wii</a></li>
+	            <li role="Portateis" class="divider"></li>
+	             <li><a href="#">PSP</a></li>
+	             <li><a href="#">Nintendo DS</a></li>
+	             <li><a href="#">PS Vita</a></li>
+	             <li><a href="#">Nintendo 3DS</a></li>
+	          </ul>
+	        </li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jogos <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Action</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li role="separator" class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
-	            <li role="separator" class="divider"></li>
-	            <li><a href="#">One more separated link</a></li>
+	            <li><a href="#">PlayStation 4</a></li>
+	            <li><a href="#">X-BOX One</a></li>
+	            <li><a href="#">Wii U</a></li>
+	            <li role="PC" class="divider"></li>
+	            <li><a href="#">PC</a></li>
+	            <li role="OutrosConsoles" class="divider"></li>
+	            <li><a href="#">PlayStation 3</a></li>
+	            <li><a href="#">X-BOX 360</a></li>
+	            <li><a href="#">Wii</a></li>
+	             <li role="Portateis" class="divider"></li>
+	             <li><a href="#">PSP</a></li>
+	             <li><a href="#">Nintendo DS</a></li>
+	             <li><a href="#">PS Vita</a></li>
+	             <li><a href="#">Nintendo 3DS</a></li>
 	          </ul>
 	        </li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
+	          <input type="text" class="form-control" placeholder="Buscar">
 	        </div>
-	        <button type="submit" class="btn btn-default">Submit</button>
+	        <button type="submit" class="btn btn-default">Buscar</button>
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Link</a></li>
+	        <li><a href="#">Meus Pedidos</a></li>
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha conta <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Action</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
+	            <li><a href="#">Dados cadastrais</a></li>
+	            <li><a href="#">Meus pedidos</a></li>
+	            <li><a href="#">Alterar senha</a></li>
 	            <li role="separator" class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
+	            <li><a href="#">Sair</a></li>
 	          </ul>
 	        </li>
 	      </ul>
