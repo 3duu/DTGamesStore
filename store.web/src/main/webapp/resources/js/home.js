@@ -9,7 +9,7 @@
 
 var app = angular.module('Home', []);
 app.controller('HomeController',  ['$scope', function($scope) {
-    $scope.message = "Fuck Yeah!";
+    $scope.message = "Bem vindo a DT Store";
 }]);
 
 var path = window.location.pathname;

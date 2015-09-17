@@ -9,7 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import store.model.common.Address;
 
@@ -19,33 +20,34 @@ public class Client {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ClientId;
-	private String Name;
+	private int clientId;
+	private String name;
 	private String cpf;
 	private Calendar birthDate;
 	
-	@OneToMany(mappedBy = "addressId", targetEntity = Address.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="addressId")
+	@ManyToOne(targetEntity = Address.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> address;
 	
 
 	//Getters and Setters
 	public int getId() {
-		return ClientId;
+		return clientId;
 	}
 
 
-	public void setId(int ClientId) {
-		this.ClientId = ClientId;
+	public void setId(int clientId) {
+		this.clientId = clientId;
 	}
 
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 

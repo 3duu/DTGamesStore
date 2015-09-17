@@ -1,10 +1,12 @@
 package store.model.common;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import store.model.interfaces.IModel;
 
 
@@ -14,11 +16,21 @@ public class Address implements IModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
+	
+	@Column(columnDefinition="varchar(50)")
 	private String street;
+	
+	@Column(columnDefinition="varchar(50)")
 	private String district;
+	
+	@Column(columnDefinition="varchar(10)")
 	private String number;
+	
+	@Column(columnDefinition="varchar(100)")
 	private String City;
-	private String UF;
+	
+	@Column(columnDefinition="char(2)")
+	private String uf;
 	
 	//Getters and Setters
 	public int getaddressId() {
@@ -72,12 +84,12 @@ public class Address implements IModel {
 
 
 	public String getUF() {
-		return UF;
+		return uf;
 	}
 
 
-	public void setUF(String uF) {
-		UF = uF;
+	public void setUF(String uf) {
+		this.uf = uf;
 	}
 	
 	public boolean isValid(){

@@ -15,7 +15,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Quem somos <span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="#" ng-click="whoWeAre($index)">Quem somos <span class="sr-only">(current)</span></a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consoles <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
@@ -53,7 +53,7 @@
 	          </ul>
 	        </li>
 	      </ul>
-	      <form class="navbar-form navbar-left" role="search">
+	      <form class="navbar-form navbar-left" role="search" method="get" action="product/search">
 	        <div class="form-group">
 	          <input type="text" class="form-control" placeholder="Buscar">
 	        </div>

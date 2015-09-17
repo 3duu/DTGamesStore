@@ -53,7 +53,7 @@ public class JPAConfiguration {
 		properties.setProperty("hibernate.hbm2ddl.auto",
 		"update");
 		properties.setProperty("hibernate.dialect",
-		"org.hibernate.dialect.MySQL5Dialect");
+		"org.hibernate.dialect.SQLServerDialect");
 		properties.setProperty("hibernate.show_sql", "true");
 		return properties;
 	}
