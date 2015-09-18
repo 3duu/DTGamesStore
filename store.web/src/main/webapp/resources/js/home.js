@@ -2,9 +2,9 @@
  * 
  */
 var app = angular.module('Home', []);
-app.controller('HomeController',  function($scope, $http, $timeout) {
+app.controller('HomeController', function($scope, $http, $timeout) {
     $scope.message = 'Bem vindo a DT Store';
-    
+    var path = window.location.pathname;
   //Carregar produtos mais vendidos
 //    $http.get('/products/mostsold').success(function(data) {
 //		//$scope.greeting = data;
@@ -12,7 +12,7 @@ app.controller('HomeController',  function($scope, $http, $timeout) {
 //	})
     
     var data = undefined;
-    $http.get('http://localhost:8080/store.web/products/mostsold').  
+    $http.get(path + '/products/mostsold').
     then(function(response) {
     	$scope.mostsoldlist = response.data;
     	//data = response;
@@ -45,5 +45,5 @@ app.controller('HomeController',  function($scope, $http, $timeout) {
     
 });
 
-var path = window.location.pathname;
+
 
