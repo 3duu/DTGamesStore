@@ -11,12 +11,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-	http
-		.httpBasic()
-			.and()
-				.authorizeRequests()
-					.antMatchers(HttpMethod.POST, "/products/mostsold").permitAll()
-					.antMatchers(HttpMethod.GET,"/").permitAll();
+//	http
+//		.httpBasic()
+//			.and()
+//				.authorizeRequests()
+//					.antMatchers("/products/mostsold").permitAll()
+//					//.antMatchers(HttpMethod.GET,"/").permitAll()
+//					.antMatchers(HttpMethod.POST, "/user").permitAll();
+		
+		http.authorizeRequests()
+		.anyRequest().authenticated()
+		.and()
+		.formLogin().and()
+		.httpBasic();
 	
 		//.hasRole("ADMIN")
 		//.anyRequest().authenticated()
