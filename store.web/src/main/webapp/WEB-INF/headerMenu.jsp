@@ -60,6 +60,10 @@
 	        <button type="submit" class="btn btn-default">Buscar</button>
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
+		      <li>
+			      <a href="#">Carrinho</a>
+<!-- 			      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> -->
+		      </li>
 	        <li><a href="#">Meus Pedidos</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha conta <span class="caret"></span></a>

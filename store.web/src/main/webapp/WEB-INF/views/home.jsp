@@ -10,5 +10,18 @@
   <body ng-controller="HomeController">
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
     {{message}}
+    
+    <div id="MostSold">
+    
+	    <div class="row">
+		  {{MostSoldProducts}}  
+		  <%@include file="/WEB-INF/views/res/productThumb.jsp" %>
+		</div>
+   
+   	</div>
+    <div id="Newest">
+    	
+    </div>
+    
   </body>
 </html>
