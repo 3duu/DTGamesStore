@@ -3,7 +3,7 @@
  */
 var app = angular.module('Home', []);
 app.controller('HomeController', function($scope, $http, $timeout) {
-    $scope.message = 'Bem vindo a DT Store';
+    //$scope.message = 'Bem vindo a DT Store';
     var path = window.location.pathname;
   //Carregar produtos mais vendidos
 //    $http.get('/products/mostsold').success(function(data) {

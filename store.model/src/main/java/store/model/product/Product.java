@@ -1,5 +1,7 @@
 package store.model.product;
 
+import java.text.NumberFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,21 +32,47 @@ public class Product {
 	@Column(columnDefinition="varbinary(MAX)")
 	private byte[] productImage;
 	
+	
 	public int getProductId() {
 		return productId;
 	}
+	
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	
 	public int getStockQuant() {
 		return stockQuant;
 	}
+	
+	public void setStockQuant(int stockQuant) {
+		this.stockQuant = stockQuant;
+	}
+	
 	public String getName() {
 		return name;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public Double getPriceValue() {
 		return priceValue;
 	}
+	
+	public void setPriceValue(Double priceValue) {
+		this.priceValue = priceValue;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	public ProductType getType() {
 		return type;
 	}
@@ -63,4 +91,14 @@ public class Product {
 	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
 	}
+	
+	//rules
+	
+	public String getProductDescription(){
+		return this.getType().name() + " " 
+			+ this.getName() + " - " 
+			+ this.getConsole().name() 
+			+ " \n " + NumberFormat.getCurrencyInstance().format(this.getPriceValue());
+	}
+
 }

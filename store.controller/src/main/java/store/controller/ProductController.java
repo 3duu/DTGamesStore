@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import store.infrastructure.dao.product.ProductDAO;
 import store.model.product.Product;
+import store.model.product.ProductType;
+import store.model.product.TargetConsole;
 
 @Transactional
 @Controller
@@ -26,10 +28,15 @@ public class ProductController {
 
 		if (productDAO != null) {
 			// mais vendidos
-			return productDAO.list();
+			List<Product> products = productDAO.list();
+			for(Product p : products)
+				p.setDescription(p.getProductDescription());
+			return products;
 
 		}
 		return null;
 	}
+	
+	
 
 }
