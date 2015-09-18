@@ -17,7 +17,7 @@
 		</div>
 	    <div class="row">
 		  {{MostSoldProducts}}  
-		  <%@include file="/WEB-INF/views/res/productThumb.jsp" %>
+		  <%@include file="/WEB-INF/views/products/productSmallThumb.jsp" %>
 	</div>
    
    	</div>
