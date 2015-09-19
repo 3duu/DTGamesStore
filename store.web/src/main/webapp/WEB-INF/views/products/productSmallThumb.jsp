@@ -7,7 +7,7 @@
 	        <h3>{{product.name}}</h3>
 	        <p>{{product.description}}</p>
 	        <p>
-	        <a href="{{productUrl}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
+	        <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
 	        <a href="#"  class="btn btn-default" role="button">Carrinho+ </a>
 	        </p>
 	      </div>
