@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
 
 @Entity
 public class Product {
@@ -32,6 +33,12 @@ public class Product {
 	@Column(columnDefinition="varbinary(MAX)")
 	private byte[] productImage;
 	
+	@Transient
+	private String url;
+	
+	public Product(){
+		
+	}
 	
 	public int getProductId() {
 		return productId;
@@ -92,6 +99,14 @@ public class Product {
 		this.productImage = productImage;
 	}
 	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	//rules
 	
 	public String getProductDescription(){
@@ -100,5 +115,7 @@ public class Product {
 			+ this.getConsole().name() 
 			+ " \n " + NumberFormat.getCurrencyInstance().format(this.getPriceValue());
 	}
+
+	
 
 }

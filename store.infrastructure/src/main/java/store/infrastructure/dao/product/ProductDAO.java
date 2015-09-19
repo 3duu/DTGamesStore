@@ -26,4 +26,11 @@ public class ProductDAO {
 			return null;
 	}
 	
+	public Product getById(int productId) {
+		if(manager != null)
+			return manager.find(Product.class, productId);
+		else
+			return null;
+	}
+	
 }
