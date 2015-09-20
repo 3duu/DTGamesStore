@@ -26,7 +26,7 @@ public class JPAConfiguration {
 		em.setDataSource(dataSource());
 		em.setPackagesToScan(new String[]
 		{ 
-		  "store.model.client",
+		  "store.model.user",
 		  "store.model.common",
 		  "store.model.product"
 		});

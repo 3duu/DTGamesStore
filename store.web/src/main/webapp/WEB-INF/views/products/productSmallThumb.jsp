@@ -2,7 +2,9 @@
    	<input name="productId" value="{{product.productId}}" hidden="hidden">
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width="200" height=250>
+    	  <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController">
+	      	<img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width="200" height=250>
+	      </a>
 	      <div class="caption" align="center">
 	        <h3>{{product.name}}</h3>
 	        <p>{{product.description}}</p>

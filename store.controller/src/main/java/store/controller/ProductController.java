@@ -1,12 +1,11 @@
 package store.controller;
 
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import store.infrastructure.dao.product.ProductDAO;
+import store.infrastructure.utils.Int32;
 import store.model.product.Product;
-import store.model.product.ProductType;
-import store.model.product.TargetConsole;
 
 @Transactional
 @Controller
@@ -28,6 +26,7 @@ public class ProductController {
 	private ProductDAO productDAO;
 	
 	protected final String shoopingPage = "products/productBuy";
+	protected final String consolesPage = "products/consoles";
 
 	@ResponseBody
 	@RequestMapping(value = "/mostsold", method = RequestMethod.GET)
@@ -46,16 +45,16 @@ public class ProductController {
 	
 	//@SuppressWarnings("restriction")
 	@RequestMapping("/shopping/{pageID}")
-	public ModelAndView getAttr(@PathVariable(value="pageID") String id, 
-	                                 @RequestParam String codigo) {
+	public ModelAndView getProductPage(@PathVariable(value="pageID") String id, 
+	                                 @RequestParam String code) {
 		
 		if(!"p".equals(id)){
 			return null;
 		}
 		
 		ModelAndView mv = new ModelAndView(shoopingPage);
-		if(!codigo.isEmpty()){
-			final int productId = Integer.parseInt(codigo);
+		if(!code.isEmpty()){
+			final int productId = Integer.parseInt(code);
 			final Product p = productDAO.getById(productId);
 			if(p != null){
 				mv.addObject("productId", p.getProductId());
@@ -79,13 +78,39 @@ public class ProductController {
 		if(!product.isEmpty()){
 			int productId = Integer.parseInt(product);
 			Product p = productDAO.getById(productId);
-			if(p != null)
+			if(p != null){
+				p.setUrl("");
 				return p;
+			}
+				
 		}
 		
 		return null;
 	}
 	
-	
+	//Consoles
+	@RequestMapping("/category/{pageID}")
+	public ModelAndView getProductsByType(@PathVariable(value="pageID") String id, 
+	                                 @RequestParam String type) {
+		
+//		Int32 tipo = new Int32();
+//		tipo.setValue(Integer);
+		if(!"p".equals(id)){
+			return null;
+		}
+		
+		ModelAndView mv = new ModelAndView(shoopingPage);
+		if(!type.isEmpty()){
+			final int productId = Integer.parseInt(type);
+			final Product p = productDAO.getById(productId);
+			if(p != null){
+				mv.addObject("productId", p.getProductId());
+				//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
+			}
+				
+		}
+		
+		return mv;
+	}
 
 }
