@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import store.infrastructure.dao.product.ProductDAO;
-//import store.infrastructure.utils.Int32;
+import store.infrastructure.utils.Int32;
 import store.model.product.Product;
 
 @Transactional

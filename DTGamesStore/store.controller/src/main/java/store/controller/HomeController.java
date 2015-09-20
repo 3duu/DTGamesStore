@@ -2,15 +2,16 @@ package store.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.servlet.ModelAndView;
+//import store.controller.interfaces.IController;
+import store.controller.interfaces.IHomeController;
 
 @Controller
-public class HomeController {
+public class HomeController implements IHomeController {
+	
+	protected final String indexPage = "home";
 	
 	@RequestMapping("/")
 	public String index() {
-		//ModelAndView modelAndView = new ModelAndView("home");
-		return "home";
+		return indexPage;
 	}
-	
 }

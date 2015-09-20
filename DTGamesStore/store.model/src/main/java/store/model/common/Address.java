@@ -7,11 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import store.model.interfaces.Model;
+import store.model.interfaces.IModel;
 
 
 @Entity
-public class Address implements Model {
+public class Address implements IModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +26,11 @@ public class Address implements Model {
 	@Column(columnDefinition="varchar(10)")
 	private String number;
 	
-	@Column(l,columnDefinition="varchar(100)")
+	@Column(columnDefinition="varchar(100)")
 	private String City;
 	
 	@Column(columnDefinition="char(2)")
-	private String UF;
+	private String uf;
 	
 	//Getters and Setters
 	public int getaddressId() {
@@ -84,12 +84,12 @@ public class Address implements Model {
 
 
 	public String getUF() {
-		return UF;
+		return uf;
 	}
 
 
-	public void setUF(String uF) {
-		UF = uF;
+	public void setUF(String uf) {
+		this.uf = uf;
 	}
 	
 	public boolean isValid(){
