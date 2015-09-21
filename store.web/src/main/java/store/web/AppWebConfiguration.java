@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import store.controller.*;
+import store.controller.shoppingcart.ShoppingCart;
 import store.controller.user.UserController;
 import store.infrastructure.dao.product.ProductDAO;
 
@@ -22,6 +23,9 @@ import store.infrastructure.dao.product.ProductDAO;
 	
 	//DAOs
 	ProductDAO.class,
+	
+	//Components
+	ShoppingCart.class,
 })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	

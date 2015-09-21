@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ import store.infrastructure.dao.product.ProductDAO;
 //import store.infrastructure.utils.Int32;
 import store.model.product.Product;
 
-@Transactional
+//@Transactional
 @Controller
 @RequestMapping("/products")
 public class ProductController {
@@ -44,7 +44,7 @@ public class ProductController {
 	}
 	
 	//@SuppressWarnings("restriction")
-	@RequestMapping("/shopping/{pageID}")
+	@RequestMapping("/{pageID}")
 	public ModelAndView getProductPage(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String code) {
 		
@@ -67,7 +67,7 @@ public class ProductController {
 	}
 		
 	
-	@RequestMapping("/shopping/pget/{pageID}")
+	@RequestMapping("/pget/{pageID}")
 	public @ResponseBody Product getProduct(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String product) {
 		

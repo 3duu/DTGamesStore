@@ -25,7 +25,7 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
          	$scope.productImage = ('data:image/jpg;base64,' + response.data.productImage);
         	
          }, function(response) {
-         	alert('Fail');
+         	alert('Erro ao obter produtos');
          });
     }
     
