@@ -34,8 +34,13 @@ public class Product {
 	@Column(columnDefinition="varbinary(MAX)")
 	private byte[] productImage;
 	
+	//JPA Ignonar
 	@Transient
 	private String url;
+	
+	@Transient
+	private String formatedValue;
+	
 	
 	public Product(){
 		
@@ -71,6 +76,7 @@ public class Product {
 	
 	public void setPriceValue(Double priceValue) {
 		this.priceValue = priceValue;
+		this.formatedValue = NumberFormat.getCurrencyInstance().format(priceValue);
 	}
 	
 	public String getDescription() {
@@ -108,9 +114,15 @@ public class Product {
 		this.url = url;
 	}
 	
+	
 	//rules
 	
+	public String getFormatedValue() {
+		return formatedValue;
+	}
+
 	public String getProductDescription(){
+		this.setPriceValue(this.priceValue);
 		return this.getType().name() + " " 
 			+ this.getName() + " - " 
 			+ this.getConsole().name() 

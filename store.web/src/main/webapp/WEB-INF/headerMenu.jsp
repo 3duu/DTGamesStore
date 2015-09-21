@@ -61,12 +61,18 @@
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
 		      <li>
-			      <a href="#">Carrinho</a>
+			      <a href="#">Carrinho <span class="badge">0</span> </a>
 <!-- 			      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> -->
+<!-- <ul class="nav nav-pills" role="tablist"> -->
+<!--   <li role="presentation" class="active"><a href="#">Home <span class="badge">42</span></a></li> -->
+<!--   <li role="presentation"><a href="#">Profile</a></li> -->
+<!--   <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li> -->
+<!-- </ul> -->
+
 		      </li>
 	        <li><a href="#">Meus Pedidos</a></li>
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha conta <span class="caret"></span></a>
+	          <a href="#" id="userAccount" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha conta <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Dados cadastrais</a></li>
 	            <li><a href="#">Meus pedidos</a></li>

@@ -5,13 +5,7 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     //$scope.message = 'Bem vindo a DT Store';
     var path = window.location.pathname;
     var id = $("#productId").val();
-    //var img = $("#productImage").val();
-    
-//    if(img != null && img != '' && img != undefined){
-    	//$scope.productImage = ('data:image/jpg;base64,' + img);
-        //$("#productImage").val('');
-//    }
-    
+
     //url dos produtos
     //$scope.productUrl = (productBuyUrl + $scope.productId);
 
@@ -24,7 +18,10 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     	    params: {product: id}
     	 }).then(function(response) {
          	$scope.name = response.data.name;
+         	$scope.priceValue = response.data.formatedValue;
+         	$scope.console = response.data.console;
          	
+         	$scope.description = response.data.description;
          	$scope.productImage = ('data:image/jpg;base64,' + response.data.productImage);
         	
          }, function(response) {

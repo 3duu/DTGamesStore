@@ -23,10 +23,20 @@
 	   		</div>
 	   		
 	   		<div class="col-sm-6 col-md-4">
-			    <div class="thumbnail">
-			      <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
-		          <a href="#"  class="btn btn-default" role="button">Carrinho+ </a>
-			    </div>
+			    
+			    <ul class="list-group">
+				  <li class="list-group-item"><h3>{{name}}</h3></li>
+				  <li class="list-group-item"><h2>{{priceValue}}</h2></li>
+				  <li class="list-group-item">Plataforma:  {{console}}</li>
+				  <li class="list-group-item">Descrição: {{description}}</li>
+				  <li class="list-group-item">
+					   <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
+			           <a href="#"  class="btn btn-default" role="button">Carrinho+ </a>
+				  </li>
+				</ul>
+			
+			     
+			   
 		    </div>
 		    
    		</div>

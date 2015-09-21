@@ -76,10 +76,12 @@ public class ProductController {
 		}
 		
 		if(!product.isEmpty()){
+			
 			int productId = Integer.parseInt(product);
 			Product p = productDAO.getById(productId);
 			if(p != null){
 				p.setUrl("");
+				p.setPriceValue(p.getPriceValue());
 				return p;
 			}
 				
@@ -93,7 +95,6 @@ public class ProductController {
 	public ModelAndView getProductsByType(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String type) {
 		
-//		Int32 tipo = new Int32();
 //		tipo.setValue(Integer);
 		if(!"p".equals(id)){
 			return null;
@@ -104,6 +105,7 @@ public class ProductController {
 			final int productId = Integer.parseInt(type);
 			final Product p = productDAO.getById(productId);
 			if(p != null){
+				p.setPriceValue(p.getPriceValue());
 				mv.addObject("productId", p.getProductId());
 				//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
 			}
