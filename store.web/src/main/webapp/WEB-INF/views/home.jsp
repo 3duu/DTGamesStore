@@ -15,9 +15,9 @@
 		  <h1>Mais Vendidos <small></small></h1>
 		</div>
 	    <div class="row">
-		  {{MostSoldProducts}}  
+		   
 		  <%@include file="/WEB-INF/views/products/productSmallThumb.jsp" %>
-	</div>
+		</div>
    
    	</div>
     <div id="Newest">

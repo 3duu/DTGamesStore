@@ -16,15 +16,24 @@
       </div>
       <div class="panel-body">
         
-        <div>
+        <div class="row">
         <input type="hidden" value="${productId}" id="productId" />
-		    <div class="row"> 
+	        <div>
 			  <%@include file="/WEB-INF/views/products/productBigThumb.jsp" %>
-			</div>
+	   		</div>
+	   		
+	   		<div class="col-sm-6 col-md-4">
+			    <div class="thumbnail">
+			      <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
+		          <a href="#"  class="btn btn-default" role="button">Carrinho+ </a>
+			    </div>
+		    </div>
+		    
    		</div>
-        
+   		
       </div>
-    </div>
+	      
+	    </div>
 	
 </body>
 </html>
