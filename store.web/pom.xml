@@ -14,7 +14,7 @@
 		<org.springframework-version>4.1.0.RELEASE</org.springframework-version>
 		<org.springframework.security-version>4.0.0.M2</org.springframework.security-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
-	</properties>
+</properties>
   
   <dependencies>
   
@@ -36,7 +36,19 @@
 		<artifactId>validation-api</artifactId>
 		<version>1.0.0.GA</version>
 	</dependency>
-
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>4.1.0.Final</version>
+	</dependency>
+	
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-servlet-api</artifactId>
@@ -96,14 +108,35 @@
 			<scope></scope>
 		</dependency>
 		
-
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>1.0.0.GA</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.1.0.Final</version>
+		</dependency>
+
+		<!-- commons -->
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<!-- javax.inject -->
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+
 		<!-- Jackson -->
 
 		<dependency>
@@ -119,6 +152,20 @@
 		</dependency>
 
 		
+
+		<!-- xml -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.8</version>
+		</dependency>
 
 		<!-- Spring security -->
 
@@ -163,9 +210,6 @@
 <!-- 			<version>${org.springframework.security-version}</version> -->
 <!-- 		</dependency> -->
 
-		<!-- email -->
-
-		
   </dependencies>
   
   <repositories>

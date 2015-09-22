@@ -8,9 +8,10 @@ import org.springframework.stereotype.Component;
 
 import store.model.product.Product;
 import store.model.user.User;
+import org.springframework.web.context.WebApplicationContext;
 
 @Component
-//@Scope(value = WebApplicationContext.SCOPE_APPLICATION)
+@Scope(value = WebApplicationContext.SCOPE_APPLICATION)
 public class ShoppingCart {
 	public User client;
 	public List<Product> products;
