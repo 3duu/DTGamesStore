@@ -15,13 +15,12 @@ app.controller('ProductController',  function($scope, $http) {
     
       var productId = 1;
       
-     
-      
 	  $scope.addToCart = function(clickEvent) {
 		  $http({	
 			    url: shoppingPath, 
-			    method: "POST",
-			    data: productId
+			    method: 'POST',
+			    data: productId,
+			    headers:'Content-Type: application/json'
 			 })
 			 .then(function(response) {
 		  	//$scope.mostsoldlist = response.data;
@@ -57,7 +56,7 @@ app.controller('UserController',  function($scope, $http) {
 	$scope.userUrl = '#';
 	$http({	
 	    url: 'user/data', 
-	    method: "GET",
+	    method: 'GET',
 	    params: {userId: userId, sessionToken: token }
 	 })
 	 .then(function(response) {
