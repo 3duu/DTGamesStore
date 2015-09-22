@@ -114,5 +114,30 @@ public class ProductController {
 		
 		return mv;
 	}
+	
+	//Busca
+	@RequestMapping("/search/{pageID}")
+	public ModelAndView getSearchPage(@PathVariable(value="pageID") String id, 
+	                                 @RequestParam String word) {
+		
+		
+		if(!"p".equals(id)){
+			return null;
+		}
+		
+		ModelAndView mv = new ModelAndView(shoopingPage);
+		if(!word.isEmpty()){
+			final int productId = Integer.parseInt(word);
+			final Product p = productDAO.getById(productId);
+			if(p != null){
+				p.setPriceValue(p.getPriceValue());
+				mv.addObject("productId", p.getProductId());
+				//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
+			}
+				
+		}
+		
+		return mv;
+	}
 
 }
