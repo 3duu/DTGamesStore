@@ -24,10 +24,13 @@ public class ShoppingCartController {
 	private ShoppingCart shoppingCart;
 	
 	@RequestMapping(value="/additem", method=RequestMethod.POST)
-		public ModelAndView add(Integer productId){
-		//ShoppingItem item = createItem(productId);
-		//shoppingCart.add(item);
-		return new ModelAndView("redirect:/produtos");
+		public void add(Integer productId){
+		if(productId != null){
+			Product item = productDAO.getById(productId);
+			shoppingCart.add(item);
+		}
+		
+		//return new ModelAndView("redirect:/produtos");
 	}
 	
 	@RequestMapping(value="/cartinfo", method=RequestMethod.GET)

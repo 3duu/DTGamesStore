@@ -22,7 +22,7 @@ public class ShoppingCart {
 		this.products = new ArrayList<Product>(); 
 	}
 	
-	public void  Add(Product product){
+	public void add(Product product){
 		if(products == null)
 			products = new ArrayList<Product>();
 		

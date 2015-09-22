@@ -15,9 +15,15 @@ app.controller('ProductController',  function($scope, $http) {
     
       var productId = 1;
       
+     
+      
 	  $scope.addToCart = function(clickEvent) {
-		  $http.post(shoppingPath, productId).
-		  then(function(response) {
+		  $http({	
+			    url: shoppingPath, 
+			    method: "POST",
+			    data: productId
+			 })
+			 .then(function(response) {
 		  	//$scope.mostsoldlist = response.data;
 		  	
 		  }, function(response) {
