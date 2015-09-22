@@ -8,9 +8,9 @@
 	      <div class="caption" align="center">
 	        <h3>{{product.name}}</h3>
 	        <p>{{product.description}}</p>
-	        <p>
-	        <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
-	        <a href="#"  class="btn btn-default" role="button">Carrinho+ </a>
+	        <p ng-controller="ProductController">
+	        <a href="{{productUrl}}" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
+	        <a href="#"  class="btn btn-default" ng-click="addToCart($event)" role="button">Carrinho+ </a>
 	        </p>
 	      </div>
 	    </div>

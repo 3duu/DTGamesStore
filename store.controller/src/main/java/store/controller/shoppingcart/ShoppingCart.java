@@ -16,7 +16,11 @@ import org.springframework.web.context.WebApplicationContext;
 public class ShoppingCart {
 	public User client;
 	public List<Product> products;
-	private int count = 0;
+	private int count;
+	
+	public ShoppingCart(){
+		this.products = new ArrayList<Product>(); 
+	}
 	
 	public void  Add(Product product){
 		if(products == null)

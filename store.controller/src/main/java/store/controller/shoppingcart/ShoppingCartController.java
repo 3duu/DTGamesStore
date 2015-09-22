@@ -23,7 +23,7 @@ public class ShoppingCartController {
 	@Autowired
 	private ShoppingCart shoppingCart;
 	
-	@RequestMapping(value="/", method=RequestMethod.POST)
+	@RequestMapping(value="/additem", method=RequestMethod.POST)
 		public ModelAndView add(Integer productId){
 		//ShoppingItem item = createItem(productId);
 		//shoppingCart.add(item);

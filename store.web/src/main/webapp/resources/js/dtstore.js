@@ -4,6 +4,7 @@
 var app = angular.module('dtstore', []);
 var path = window.location.pathname;
 var producPath = "products/p?code=";
+var shoppingPath = "shopping/additem";
 var productBuyUrl = ('#' + path + producPath);
 var productId;
 var token = '';
@@ -12,20 +13,33 @@ app.controller('ProductController',  function($scope, $http) {
 	//url dos produtos
     $scope.productUrl = producPath;
     
+      var productId = 1;
+      
+	  $scope.addToCart = function(clickEvent) {
+		  $http.post(shoppingPath, productId).
+		  then(function(response) {
+		  	//$scope.mostsoldlist = response.data;
+		  	
+		  }, function(response) {
+		  	alert('Erro');
+		  });
+	};
+    
+    
   //Verificar carrinho de compras
     var userId = 1;
     
-    $http({	
-	    url: 'shopping/cartinfo', 
-	    method: "GET",
-	    params: {userId: userId}
-	 })
-	 .then(function(response) {
-    	$scope.cartItems = response.data.count;
-    	$scope.$apply();
-    }, function(response) {
-    	alert('Erro ao obter dados');
-    });
+//    $http({	
+//	    url: 'shopping/cartinfo', 
+//	    method: "GET",
+//	    params: {userId: userId}
+//	 })
+//	 .then(function(response) {
+//    	$scope.cartItems = response.data.count;
+//    	$scope.$apply();
+//    }, function(response) {
+//    	alert('Erro ao obter dados');
+//    });
     
     
 });

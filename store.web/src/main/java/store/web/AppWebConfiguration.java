@@ -37,7 +37,9 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
 		resolver.setContentType(ViewConstants.MEDIA_TYPE_HTML);
-		WebApplicationContext dde;
+		
+		resolver.setExposedContextBeanNames("shoppingCart");
+
 		return resolver;
 	}
 	
