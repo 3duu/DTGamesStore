@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,13 +25,13 @@ public class ShoppingCartController {
 	private ShoppingCart shoppingCart;
 	
 	@RequestMapping(value="/additem", method=RequestMethod.POST)
-		public void add(Integer productId){
-		if(productId != null){
-			Product item = productDAO.getById(productId);
+		public @ResponseBody int add(@RequestBody Product product){
+		if(product != null && product.getProductId() != 0){
+			Product item = productDAO.getById(product.getProductId());
 			shoppingCart.add(item);
 		}
 		
-		//return new ModelAndView("redirect:/produtos");
+		return shoppingCart.getCount();
 	}
 	
 	@RequestMapping(value="/cartinfo", method=RequestMethod.GET)

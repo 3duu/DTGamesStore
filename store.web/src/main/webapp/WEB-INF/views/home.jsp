@@ -15,8 +15,9 @@
 		  <h1>Mais Vendidos <small></small></h1>
 		</div>
 	    <div class="row">
-		   
-		  <%@include file="/WEB-INF/views/products/productSmallThumb.jsp" %>
+		  <article ng-repeat="product in mostsoldlist">
+		  	<%@include file="/WEB-INF/views/products/productSmallThumb.jsp" %>
+		  </article>
 		</div>
    
    	</div>

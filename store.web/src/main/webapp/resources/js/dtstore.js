@@ -13,13 +13,16 @@ app.controller('ProductController',  function($scope, $http) {
 	//url dos produtos
     $scope.productUrl = producPath;
     
-      var productId = 1;
+      
       
 	  $scope.addToCart = function(clickEvent) {
+		  
+		  var product = $scope.product;
+		  
 		  $http({	
 			    url: shoppingPath, 
 			    method: 'POST',
-			    data: productId,
+			    data: product,
 			    headers:'Content-Type: application/json'
 			 })
 			 .then(function(response) {
