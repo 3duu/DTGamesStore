@@ -19,18 +19,23 @@ app.controller('ProductController',  function($scope, $http) {
 		  
 		  var product = $scope.product;
 		  
-		  $http({	
-			    url: shoppingPath, 
-			    method: 'POST',
-			    data: product,
-			    headers:'Content-Type: application/json'
-			 })
-			 .then(function(response) {
-		  	//$scope.mostsoldlist = response.data;
-		  	
-		  }, function(response) {
-		  	alert('Erro');
-		  });
+		  if(product != undefined){
+			  
+//			  $http({	
+//				    url: shoppingPath, 
+//				    method: 'POST',
+//				    data: product
+//				 })
+			  $http.post(shoppingPath, product)
+				 .then(function(response) {
+			  	//$scope.mostsoldlist = response.data;
+			  	
+			  }, function(response) {
+			  	alert('Erro');
+			  });
+			  
+		  }
+		  
 	};
     
     
