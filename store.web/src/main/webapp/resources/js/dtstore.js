@@ -13,25 +13,18 @@ app.controller('ProductController',  function($scope, $http) {
 	//url dos produtos
     $scope.productUrl = producPath;
     
-      
-      
 	  $scope.addToCart = function(clickEvent) {
 		  
 		  var product = $scope.product;
 		  
 		  if(product != undefined){
 			  
-//			  $http({	
-//				    url: shoppingPath, 
-//				    method: 'POST',
-//				    data: product
-//				 })
 			  $http.post(shoppingPath, product)
 				 .then(function(response) {
 			  	//$scope.mostsoldlist = response.data;
 			  	
 			  }, function(response) {
-			  	alert('Erro');
+			  	alert('Erro ao adicionar ao carrinho');
 			  });
 			  
 		  }

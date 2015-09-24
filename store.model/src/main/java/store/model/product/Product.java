@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 public class Product {
 	@Id
