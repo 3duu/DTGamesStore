@@ -21,8 +21,7 @@ app.controller('ProductController',  function($scope, $http) {
 			  
 			  $http.post(shoppingPath, product)
 				 .then(function(response) {
-			  	//$scope.mostsoldlist = response.data;
-			  	
+			  	$('#cartCount').text(response.data);
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
@@ -75,7 +74,7 @@ app.controller('UserController',  function($scope, $http) {
     		
     	$scope.account = response.data;
     }, function(response) {
-    	alert('Impossível validar sessão');
+    	//alert('Impossível validar sessão');
     	$scope.account = 'Fazer Login';
     	$('#userDropdown').remove();
     	//element.remove();
