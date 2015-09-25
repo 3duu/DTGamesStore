@@ -18,9 +18,30 @@
       
       <div class="panel-body">
         
-		<ul class="list-group" ng-repeat="product in cartProducts">
-		  	<%@include file="/WEB-INF/views/cart/productCartThumb.jsp" %>
-		</ul>
+<!-- 		<ul class="list-group" ng-repeat="product in cartProducts"> -->
+<%-- 		  	<%@include file="/WEB-INF/views/cart/productCartThumb.jsp" %> --%>
+<!-- 		</ul> -->
+		
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Produtos no Carrinho</div>
+		  <div class="panel-body">
+		    <p>...</p>
+		  </div>
+		
+		  <!-- Table -->
+		  <table class="table" ng-controller="ShoppingController">
+		    <tr ng-repeat="product in cartProducts">
+		    	<td> 
+		    		<h4 class="list-group-item-heading">{{product.name}}</h4> 	    		
+		    		<a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController">
+		      			<img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width=75 height=100 ng-model="product.productImage">
+		      		</a>
+		    	</td>
+		    	
+		    </tr>
+		  </table>
+		</div>
    		
       </div>
 	      
