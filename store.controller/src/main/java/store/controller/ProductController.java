@@ -120,7 +120,6 @@ public class ProductController {
 	public ModelAndView getSearchPage(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String word) {
 		
-		
 		if(!"p".equals(id)){
 			return null;
 		}

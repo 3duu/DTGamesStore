@@ -4,9 +4,9 @@
 <html ng-app="dtstore">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title ng-controller="ProductController">DT Games Store - {{name}}</title>
     <%@include file="/WEB-INF/header.jsp" %>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.js" ></script>
+    <title ng-controller="ProductController">DT Games Store - {{name}}</title>
 </head>
 <body ng-controller="ProductController">
 	<%@include file="/WEB-INF/headerMenu.jsp"%>

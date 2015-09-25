@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html ng-app="dtstore">
   <head>
-    <title>DT Games Store</title>
     <%@include file="/WEB-INF/header.jsp" %>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/home.js" ></script>
+    <title>DT Games Store</title>
   </head>
   <body ng-controller="HomeController" >
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
     
     <div id="MostSold">
+    
     	<div class="page-header">
 		  <h1>Mais Vendidos <small></small></h1>
 		</div>

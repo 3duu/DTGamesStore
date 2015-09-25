@@ -1,13 +1,21 @@
 /**
  * 
  */
+
+var urls = 
+{
+		cartInfo: 'cartinfo'
+};
+
 var app = angular.module('dtstore', []);
 var path = window.location.pathname;
 var producPath = "products/p?code=";
 var shoppingPath = "shopping/additem";
+var shoppingCartPath = "shopping/cart";
 var productBuyUrl = ('#' + path + producPath);
 var productId;
 var token = '';
+
 
 app.controller('ProductController',  function($scope, $http) {
 	//url dos produtos
@@ -31,22 +39,6 @@ app.controller('ProductController',  function($scope, $http) {
 	};
     
     
-  //Verificar carrinho de compras
-    var userId = 1;
-    
-//    $http({	
-//	    url: 'shopping/cartinfo', 
-//	    method: "GET",
-//	    params: {userId: userId}
-//	 })
-//	 .then(function(response) {
-//    	$scope.cartItems = response.data.count;
-//    	$scope.$apply();
-//    }, function(response) {
-//    	alert('Erro ao obter dados');
-//    });
-    
-    
 });
 
 app.controller('UserController',  function($scope, $http) {
@@ -54,6 +46,8 @@ app.controller('UserController',  function($scope, $http) {
 	//var element = angular.element('<div id="loading" class="loading">' + '<img src="../styling/img/loading.gif" alt="loading .... ">' + '</div>');
 	var userId = 1;
 	$scope.userUrl = '#';
+	$scope.cartUrl = shoppingCartPath;
+	
 	$http({	
 	    url: 'user/data', 
 	    method: 'GET',
