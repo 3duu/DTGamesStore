@@ -18,11 +18,9 @@
       
       <div class="panel-body">
         
-		<div class="row">
-		  <article ng-repeat="product in cartProducts">
-		  	<%@include file="/WEB-INF/views/products/productSmallThumb.jsp" %>
-		  </article>
-		</div>
+		<ul class="list-group" ng-repeat="product in cartProducts">
+		  	<%@include file="/WEB-INF/views/cart/productCartThumb.jsp" %>
+		</ul>
    		
       </div>
 	      

@@ -2,6 +2,8 @@ package store.controller.shoppingcart;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class ShoppingCartController {
 	@Autowired
 	private ShoppingCart shoppingCart;
 	
+	@Autowired
+	private HttpSession session;
+	
 	protected final String shoppingCartPage = "cart/shoppingCartShow";
 	
 	@RequestMapping(value="/additem", method=RequestMethod.POST)
@@ -38,10 +43,13 @@ public class ShoppingCartController {
 	}
 	
 	@RequestMapping(value="/cartinfo", method=RequestMethod.GET)
-	public @ResponseBody List<Product> getCart( @RequestParam String userId ) {
+	public @ResponseBody List<Product> getCart( @RequestParam String userId) {
 		
-		if(!userId.isEmpty() && shoppingCart != null && shoppingCart.products != null){
-			return shoppingCart.products;
+		if(this.session != null)
+			this.session.getAttribute("shoppingCart");
+		
+		if(!userId.isEmpty() && shoppingCart != null){
+			return shoppingCart.getProducts();
 		}
 		
 		return null;
