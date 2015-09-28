@@ -17,10 +17,6 @@
       </div>
       
       <div class="panel-body">
-        
-<!-- 		<ul class="list-group" ng-repeat="product in cartProducts"> -->
-<%-- 		  	<%@include file="/WEB-INF/views/cart/productCartThumb.jsp" %> --%>
-<!-- 		</ul> -->
 		
 		<div class="panel panel-default">
 		  <!-- Default panel contents -->
@@ -50,6 +46,17 @@
 		    		<h4 class="list-group-item-heading" style="line-height:100px"> {{product.name}}</h4>	    	
 		    	</td>
 		    	<td>
+		    	<center>
+		    		<div>
+			    		<button class="btn btn-primary">
+						  <i class="icon-user icon-white"></i>+
+						</button>
+			    			<input type="text" value="{{productQuant}}" style="width: 30px;height: 34px" maxlength="3"/>
+		    			<button class="btn btn-primary">
+						  <i class="icon-user icon-white"></i>-
+						</button>
+					</div>
+				</center>
 		    	</td>	
 		    	<td>
 		    	</td>
