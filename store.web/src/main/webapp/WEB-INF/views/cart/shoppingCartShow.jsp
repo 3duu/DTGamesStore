@@ -31,16 +31,32 @@
 		
 		  <!-- Table -->
 		  <table class="table" ng-controller="ShoppingController">
-		    <tr ng-repeat="product in cartProducts">
-		    	<td> 
-		    		<h4 class="list-group-item-heading">{{product.name}}</h4> 	    		
-		    		<a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController">
-		      			<img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width=75 height=100 ng-model="product.productImage">
-		      		</a>
-		    	</td>
-		    	
+		  	<tr> 
+		    	<th width="200"> <center> Produto(s) no carrinho </center> </th>
+		    	<th width="200">  </th>
+		    	<th width="200"> <center> Qtde. de produtos </center> </th>
+		    	<th width="200"> <center> Valor Unitário </center> </th>
+		    	<th width="200"> <center> Valor Total </center> </th>
 		    </tr>
-		  </table>
+		    <tr ng-repeat="product in cartProducts">
+		    	<td>
+		    		<center>
+			    		<a href="{{productUrl}}{{product.productId}}" style="line-height:100px" ng-controller="ProductController">
+			      			<img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width="75" height="100" ng-model="product.productImage">
+			      		</a>
+		      		</center>
+		    	</td>
+		    	<td>
+		    		<h4 class="list-group-item-heading" style="line-height:100px"> {{product.name}}</h4>	    	
+		    	</td>
+		    	<td>
+		    	</td>	
+		    	<td>
+		    	</td>
+		    	<td>
+		    	</td>	    	
+		    </tr>
+		  </table>	
 		</div>
    		
       </div>
