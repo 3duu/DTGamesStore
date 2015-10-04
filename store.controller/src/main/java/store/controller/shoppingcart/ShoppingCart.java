@@ -2,7 +2,9 @@ package store.controller.shoppingcart;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -14,14 +16,13 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Component
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class ShoppingCart  implements Serializable {
+public class ShoppingCart {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8145848924990101545L;
-	
 	public User client;
 	private List<Product> products;
+	private Map<Integer, Integer> productCount;
 	private int count;
 	
 	public ShoppingCart(){
@@ -36,8 +37,19 @@ public class ShoppingCart  implements Serializable {
 		if(products == null)
 			products = new ArrayList<Product>();
 		
+		if(productCount == null)
+			productCount = new HashMap<Integer, Integer>();
+		
 		this.products.add(product);
 		this.count = products.size();
+		
+		Integer pCount = productCount.get(product.getProductId());
+		if(pCount == null)
+			pCount = 1;
+		else
+			pCount++;
+		
+		productCount.put(product.getProductId(), pCount);
 	}
 
 	public int getCount() {
@@ -45,7 +57,10 @@ public class ShoppingCart  implements Serializable {
 			this.count = products.size();
 		return count;
 	}
-	
-	
+
+	public Map<Integer, Integer> getProductCount() {
+		return productCount;
+	}
+
 
 }

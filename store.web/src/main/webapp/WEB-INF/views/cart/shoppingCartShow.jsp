@@ -47,11 +47,11 @@
 		    	</td>
 		    	<td>
 		    	<center>
-		    		<div>
-			    		<button class="btn btn-primary">
+		    		<div style="line-height:100px">
+			    		<button class="btn btn-primary" >
 						  <i class="icon-user icon-white"></i>+
 						</button>
-			    			<input type="text" value="{{productQuant}}" style="width: 30px;height: 34px" maxlength="3"/>
+			    			<input type="text" value="{{product.productCount}}" style="width: 30px;height: 34px" maxlength="3"/>
 		    			<button class="btn btn-primary">
 						  <i class="icon-user icon-white"></i>-
 						</button>
@@ -59,8 +59,10 @@
 				</center>
 		    	</td>	
 		    	<td>
+		    		<center><h4 class="list-group-item-heading" style="line-height:100px">{{product.priceValue}}</h4></center>
 		    	</td>
 		    	<td>
+		    		<center><h4 class="list-group-item-heading" style="line-height:100px">{{product.productTotal}}</h4></center>
 		    	</td>	    	
 		    </tr>
 		  </table>	
