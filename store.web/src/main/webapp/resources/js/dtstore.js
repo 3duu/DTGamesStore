@@ -4,13 +4,13 @@
 
 var urls = 
 {
-		cartInfo: 'cartinfo'
+		cartInfo: 'cartinfo',
+		shoppingPath: 'shopping/additem'
 };
 
 var app = angular.module('dtstore', []);
 var path = window.location.pathname;
 var producPath = "products/p?code=";
-var shoppingPath = "shopping/additem";
 var shoppingCartPath = "shopping/cart";
 var productBuyUrl = ('#' + path + producPath);
 var productId;
@@ -27,7 +27,7 @@ app.controller('ProductController',  function($scope, $http) {
 		  
 		  if(product != undefined){
 			  
-			  $http.post(shoppingPath, product)
+			  $http.post(urls.shoppingPath, product)
 				 .then(function(response) {
 			  	$('#cartCount').text(response.data);
 			  }, function(response) {
@@ -43,7 +43,6 @@ app.controller('ProductController',  function($scope, $http) {
 
 app.controller('UserController',  function($scope, $http) {
 	
-	//var element = angular.element('<div id="loading" class="loading">' + '<img src="../styling/img/loading.gif" alt="loading .... ">' + '</div>');
 	var userId = 1;
 	$scope.userUrl = '#';
 	$scope.cartUrl = shoppingCartPath;

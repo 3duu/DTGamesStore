@@ -13,7 +13,7 @@
     <div id="MostSold">
     
     	<div class="page-header">
-		  <h1>Mais Vendidos <small></small></h1>
+		  <h1>Mais Vendidos <small>Top 10</small></h1>
 		</div>
 	    <div class="row">
 		  <article ng-repeat="product in mostsoldlist">

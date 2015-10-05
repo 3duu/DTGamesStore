@@ -10,7 +10,7 @@ public class HomeController implements IHomeController {
 	
 	protected final String indexPage = "home";
 	
-	@RequestMapping("/")
+	@RequestMapping(value="/")
 	public String index() {
 		return indexPage;
 	}
