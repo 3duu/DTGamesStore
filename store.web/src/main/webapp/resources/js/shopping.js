@@ -33,11 +33,46 @@ app.controller('ShoppingController', function($scope, $http) {
 			 $scope.cartProducts = cartData;
 		 }
 		 
-    	//$scope.$apply();
-    	
     }, function(response) {
     	alert('Erro ao obter dados');
     });
+    
+    
+    $scope.newCartItem = function(clickEvent) {
+		  
+		  var product = $scope.product;
+		  
+		  if(product != undefined){
+			  
+			  $http.post("additem", product)
+				 .then(function(response) {
+			  	$('#cartCount').text(response.data);
+			  	$scope.product.productCount++;
+			  }, function(response) {
+			  	alert('Erro ao adicionar ao carrinho');
+			  });
+			  
+		  }
+		  
+	};
+	
+	$scope.removeCartItem = function(clickEvent) {
+		  
+		  var product = $scope.product;
+		  
+		  if(product != undefined){
+			  
+			  $http.post("removeitem", product)
+				 .then(function(response) {
+			  	$('#cartCount').text(response.data);
+			  	$scope.product.productCount--;
+			  }, function(response) {
+			  	alert('Erro ao remove item do carrinho');
+			  });
+			  
+		  }
+		  
+	};
     
 });
 

@@ -1,5 +1,7 @@
 package store.controller.shoppingcart;
 
+import javax.servlet.http.HttpServletRequest;
+
 /*
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +39,7 @@ public class ShoppingCartController {
 	protected final String shoppingCartPage = "cart/shoppingCartShow";
 	
 	@RequestMapping(value="/additem", method=RequestMethod.POST)
-		public @ResponseBody int add( @RequestBody Product product ){
+		public @ResponseBody int add( @RequestBody Product product, HttpServletRequest request ){
 		if(product != null && product.getProductId() != 0){
 			Product item = productDAO.getById(product.getProductId());
 			shoppingCart.add(item);
@@ -46,19 +48,21 @@ public class ShoppingCartController {
 		return shoppingCart.getCount();
 	}
 	
+	@RequestMapping(value="/removeitem", method=RequestMethod.POST)
+	public @ResponseBody int remove( @RequestBody Product product, HttpServletRequest request ){
+	if(product != null && product.getProductId() != 0){
+		Product item = productDAO.getById(product.getProductId());
+		shoppingCart.remove(item);
+	}
+	
+	return shoppingCart.getCount();
+}
+	
 	@RequestMapping(value="/cartinfo", method=RequestMethod.GET)
-	public @ResponseBody ShoppingCart getCart( @RequestParam String userId ) {
+	public @ResponseBody ShoppingCart getCart( @RequestParam String userId, HttpServletRequest request  ) {
 		
 		if(!userId.isEmpty() && shoppingCart != null){
 			
-			/*Map<String, Object> productCart = new HashMap<String, Object>();
-			List<Integer> ids = new ArrayList<Integer>();
-			for(Product p : shoppingCart.getProducts()){
-				if(!ids.contains(p.getProductId())){
-					productCart.put("productId", p.getProductId());
-					ids.add(p.getProductId());
-				}
-			}*/
 			ShoppingCart cart = new ShoppingCart();
 			for(Product p : shoppingCart.getProducts())
 				cart.add(p);
@@ -71,7 +75,7 @@ public class ShoppingCartController {
 	}
 	
 	@RequestMapping(value="/cart", method=RequestMethod.GET)
-	public  ModelAndView showCart() {
+	public  ModelAndView showCart(HttpServletRequest request ) {
 		ModelAndView mv = new ModelAndView(shoppingCartPage);
 		return mv;
 	}

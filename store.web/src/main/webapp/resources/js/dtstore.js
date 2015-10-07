@@ -4,6 +4,7 @@
 
 var urls = 
 {
+		root: $('#mainUrl').attr('content'),
 		cartInfo: 'cartinfo',
 		shoppingPath: 'shopping/additem'
 };
@@ -27,7 +28,7 @@ app.controller('ProductController',  function($scope, $http) {
 		  
 		  if(product != undefined){
 			  
-			  $http.post(urls.shoppingPath, product)
+			  $http.post(urls.root + "/" + urls.shoppingPath, product)
 				 .then(function(response) {
 			  	$('#cartCount').text(response.data);
 			  }, function(response) {
@@ -37,7 +38,6 @@ app.controller('ProductController',  function($scope, $http) {
 		  }
 		  
 	};
-    
     
 });
 

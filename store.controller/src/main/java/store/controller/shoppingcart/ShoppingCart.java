@@ -1,6 +1,5 @@
 package store.controller.shoppingcart;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,6 +47,25 @@ public class ShoppingCart {
 			pCount = 1;
 		else
 			pCount++;
+		
+		productCount.put(product.getProductId(), pCount);
+	}
+	
+	public void remove(Product product){
+		if(products == null)
+			products = new ArrayList<Product>();
+		
+		if(productCount == null)
+			productCount = new HashMap<Integer, Integer>();
+		
+		this.products.remove(product);
+		this.count = products.size();
+		
+		Integer pCount = productCount.get(product.getProductId());
+		if(pCount == null)
+			pCount = 1;
+		else
+			pCount--;
 		
 		productCount.put(product.getProductId(), pCount);
 	}

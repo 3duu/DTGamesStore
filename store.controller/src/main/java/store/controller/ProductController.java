@@ -2,6 +2,8 @@ package store.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 //import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +32,7 @@ public class ProductController {
 
 	@ResponseBody
 	@RequestMapping(value = "/mostsold", method = RequestMethod.GET)
-	public List<Product> mostSold() {
+	public List<Product> mostSold(HttpServletRequest request ) {
 
 		if (productDAO != null) {
 			// mais vendidos
@@ -46,7 +48,7 @@ public class ProductController {
 	//@SuppressWarnings("restriction")
 	@RequestMapping("/{pageID}")
 	public ModelAndView getProductPage(@PathVariable(value="pageID") String id, 
-	                                 @RequestParam String code) {
+	                                 @RequestParam String code, HttpServletRequest request ) {
 		
 		if(!"p".equals(id)){
 			return null;
@@ -69,7 +71,7 @@ public class ProductController {
 	
 	@RequestMapping("/pget/{pageID}")
 	public @ResponseBody Product getProduct(@PathVariable(value="pageID") String id, 
-	                                 @RequestParam String product) {
+	                                 @RequestParam String product, HttpServletRequest request ) {
 		
 		if(!"p".equals(id)){
 			return null;
@@ -93,7 +95,7 @@ public class ProductController {
 	//Consoles
 	@RequestMapping("/category/{pageID}")
 	public ModelAndView getProductsByType(@PathVariable(value="pageID") String id, 
-	                                 @RequestParam String type) {
+	                                 @RequestParam String type, HttpServletRequest request ) {
 		
 //		tipo.setValue(Integer);
 		if(!"p".equals(id)){
@@ -118,7 +120,7 @@ public class ProductController {
 	//Busca
 	@RequestMapping("/search/{pageID}")
 	public ModelAndView getSearchPage(@PathVariable(value="pageID") String id, 
-	                                 @RequestParam String word) {
+	                                 @RequestParam String word, HttpServletRequest request ) {
 		
 		if(!"p".equals(id)){
 			return null;

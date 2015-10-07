@@ -45,14 +45,14 @@
 		    	<td>
 		    		<h4 class="list-group-item-heading" style="line-height:100px"> {{product.name}}</h4>	    	
 		    	</td>
-		    	<td>
+		    	<td ng-controller="ShoppingController">
 		    	<center>
 		    		<div style="line-height:100px">
-			    		<button class="btn btn-primary" ng-controller="ProductController" ng-click="addToCart($event)">
+			    		<button class="btn btn-primary"  ng-click="newCartItem($event)">
 						  <i class="icon-user icon-white"></i>+
 						</button>
 			    			<input type="text" value="{{product.productCount}}" style="width: 30px;height: 34px" maxlength="3"/>
-		    			<button class="btn btn-primary">
+		    			<button class="btn btn-primary" ng-click="removeCartItem($event)">
 						  <i class="icon-user icon-white"></i>-
 						</button>
 					</div>
