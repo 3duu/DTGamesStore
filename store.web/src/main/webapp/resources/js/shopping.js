@@ -30,7 +30,9 @@ app.controller('ShoppingController', function($scope, $http) {
 				 }	 
 			 }
 			 
-			 $scope.cartProducts = cartData;
+			 if(cartData.length != 0)
+				 $scope.cartProducts = cartData;
+			 
 		 }
 		 
     }, function(response) {
@@ -66,6 +68,7 @@ app.controller('ShoppingController', function($scope, $http) {
 				 .then(function(response) {
 			  	$('#cartCount').text(response.data);
 			  	$scope.product.productCount--;
+			  	$scope.shoppingCart.count--;
 			  }, function(response) {
 			  	alert('Erro ao remove item do carrinho');
 			  });

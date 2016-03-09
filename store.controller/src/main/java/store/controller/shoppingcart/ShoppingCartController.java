@@ -49,7 +49,7 @@ public class ShoppingCartController {
 	}
 	
 	@RequestMapping(value="/removeitem", method=RequestMethod.POST)
-	public @ResponseBody int remove( @RequestBody Product product, HttpServletRequest request ){
+	public @ResponseBody int remove( @RequestBody Product product, HttpServletRequest request){
 	if(product != null && product.getProductId() != 0){
 		Product item = productDAO.getById(product.getProductId());
 		shoppingCart.remove(item);
@@ -63,7 +63,7 @@ public class ShoppingCartController {
 		
 		if(!userId.isEmpty() && shoppingCart != null){
 			
-			ShoppingCart cart = new ShoppingCart();
+			final ShoppingCart cart = new ShoppingCart();
 			for(Product p : shoppingCart.getProducts())
 				cart.add(p);
 			

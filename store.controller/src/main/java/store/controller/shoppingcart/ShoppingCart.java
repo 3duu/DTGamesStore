@@ -58,16 +58,29 @@ public class ShoppingCart {
 		if(productCount == null)
 			productCount = new HashMap<Integer, Integer>();
 		
-		this.products.remove(product);
-		this.count = products.size();
+		Product itemToRemove = null;
 		
-		Integer pCount = productCount.get(product.getProductId());
-		if(pCount == null)
-			pCount = 1;
-		else
-			pCount--;
+		for(Product p : this.products){
+			if(p.getProductId() == product.getProductId()){
+				itemToRemove = p;
+				break;
+			}
+				
+		}
 		
-		productCount.put(product.getProductId(), pCount);
+		if(itemToRemove != null){
+			this.products.remove(itemToRemove);
+			this.count = products.size();
+			
+			Integer pCount = productCount.get(product.getProductId());
+			if(pCount == null)
+				pCount = 1;
+			else
+				pCount--;
+			
+			productCount.put(product.getProductId(), pCount);
+		}
+		
 	}
 
 	public int getCount() {
