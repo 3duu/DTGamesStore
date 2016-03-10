@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html ng-app="dtstore">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -10,6 +10,7 @@
 </head>
 <body ng-controller="ShoppingController">
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
+	<!-- 	<div ng-include="'WEB-INF/headerMenu.jsp'"></div> -->
 	
 	<div class="panel panel-primary">
       <div class="panel-heading">
