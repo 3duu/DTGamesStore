@@ -13,7 +13,7 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     if(id != null && id != undefined && id != 0 && id != ''){
     	
     	$http({	
-    	    url: path.replace("/p?", "/") + "get/p?", 
+    	    url: path.replace("/show", "/") + "pget/p?",
     	    method: "GET",
     	    params: {product: id}
     	 }).then(function(response) {

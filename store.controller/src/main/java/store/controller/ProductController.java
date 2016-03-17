@@ -29,6 +29,7 @@ public class ProductController {
 	
 	protected final String shoopingPage = "products/productBuy";
 	protected final String consolesPage = "products/consoles";
+	protected final String serachPage = "products/productSearch";
 
 	@ResponseBody
 	@RequestMapping(value = "/mostsold", method = RequestMethod.GET)
@@ -36,9 +37,9 @@ public class ProductController {
 
 		if (productDAO != null) {
 			// mais vendidos
-			List<Product> products = productDAO.list();
+			final List<Product> products = productDAO.list();
 			for(Product p : products)
-				p.setDescription(p.getProductDescription());
+				p.setPriceValue(p.getPriceValue());
 			return products;
 
 		}
@@ -50,11 +51,11 @@ public class ProductController {
 	public ModelAndView getProductPage(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String code, HttpServletRequest request ) {
 		
-		if(!"p".equals(id)){
+		if(!"show".equals(id)){
 			return null;
 		}
 		
-		ModelAndView mv = new ModelAndView(shoopingPage);
+		final ModelAndView mv = new ModelAndView(shoopingPage);
 		if(!code.isEmpty()){
 			final int productId = Integer.parseInt(code);
 			final Product p = productDAO.getById(productId);
@@ -118,15 +119,15 @@ public class ProductController {
 	}
 	
 	//Busca
-	@RequestMapping("/search/{pageID}")
-	public ModelAndView getSearchPage(@PathVariable(value="pageID") String id, 
+	@RequestMapping(value="/search/{pageID}", method=RequestMethod.GET)
+	public ModelAndView searchProduct(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String word, HttpServletRequest request ) {
 		
 		if(!"p".equals(id)){
 			return null;
 		}
 		
-		ModelAndView mv = new ModelAndView(shoopingPage);
+		final ModelAndView mv = new ModelAndView(serachPage);
 		if(!word.isEmpty()){
 			final int productId = Integer.parseInt(word);
 			final Product p = productDAO.getById(productId);
@@ -134,11 +135,11 @@ public class ProductController {
 				p.setPriceValue(p.getPriceValue());
 				mv.addObject("productId", p.getProductId());
 				//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
-			}
-				
+			}	
 		}
 		
 		return mv;
 	}
+	
 
 }

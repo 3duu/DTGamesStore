@@ -121,6 +121,7 @@ public class Product {
 	//rules
 	
 	public String getFormatedValue() {
+		this.formatedValue = NumberFormat.getCurrencyInstance().format(this.priceValue);
 		return formatedValue;
 	}
 

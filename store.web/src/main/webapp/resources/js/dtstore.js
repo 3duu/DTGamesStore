@@ -6,21 +6,22 @@ var urls =
 {
 		root: $('#mainUrl').attr('content'),
 		cartInfo: 'cartinfo',
-		shoppingPath: 'shopping/additem'
+		shoppingPath: 'shopping/additem',
+		productPath:	"products/show?code="
 };
 
 var app = angular.module('dtstore', []);
 var path = window.location.pathname;
-var producPath = "products/p?code=";
+var productPath = "products/show?code=";
 var shoppingCartPath = "shopping/cart";
-var productBuyUrl = ('#' + path + producPath);
+var productBuyUrl = ('#' + path + productPath);
 var productId;
 var token = '';
 
 
 app.controller('ProductController',  function($scope, $http) {
 	//url dos produtos
-    $scope.productUrl = producPath;
+    $scope.productUrl = productPath;
     
 	  $scope.addToCart = function(clickEvent) {
 		  
@@ -31,6 +32,7 @@ app.controller('ProductController',  function($scope, $http) {
 			  $http.post(urls.root + "/" + urls.shoppingPath, product)
 				 .then(function(response) {
 			  	$('#cartCount').text(response.data);
+			  	$scope.cartCount = response.data;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });

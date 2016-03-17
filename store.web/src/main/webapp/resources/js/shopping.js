@@ -50,6 +50,7 @@ app.controller('ShoppingController', function($scope, $http) {
 				 .then(function(response) {
 			  	$('#cartCount').text(response.data);
 			  	$scope.product.productCount++;
+			  	$scope.product.productTotal += $scope.product.priceValue;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
@@ -69,6 +70,7 @@ app.controller('ShoppingController', function($scope, $http) {
 			  	$('#cartCount').text(response.data);
 			  	$scope.product.productCount--;
 			  	$scope.shoppingCart.count--;
+			  	$scope.product.productTotal -= $scope.product.priceValue;
 			  }, function(response) {
 			  	alert('Erro ao remove item do carrinho');
 			  });

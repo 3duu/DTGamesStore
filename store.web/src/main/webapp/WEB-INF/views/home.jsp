@@ -10,7 +10,7 @@
   <body ng-controller="HomeController" >
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
     
-    <div id="MostSold">
+    <div id="MostSold" class=interface_class>
     
     	<div class="page-header">
 		  <h1>Mais Vendidos <small>Top 10</small></h1>

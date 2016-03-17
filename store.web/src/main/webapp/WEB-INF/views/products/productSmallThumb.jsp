@@ -1,4 +1,4 @@
-<input name="productId" value="{{product.productId}}" hidden="hidden" ng-model="product.productId">
+<input name="productId" value="{{product.productId}}" hidden="hidden" ng-model="product">
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
     	  <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController">
@@ -7,6 +7,8 @@
 	      <div class="caption" align="center">
 	        <h3>{{product.name}}</h3>
 	        <p>{{product.description}}</p>
+	        <p>{{product.type}} - {{product.console}}</p>
+	        <p>{{product.formatedValue}}</p>
 	        <p ng-controller="ProductController">
 	        <a href="{{productUrl}}{{product.productId}}" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
 	        <a href=""  class="btn btn-default" ng-click="addToCart($event)" role="button">Carrinho+ </a>

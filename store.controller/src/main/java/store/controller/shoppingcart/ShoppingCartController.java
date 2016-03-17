@@ -64,8 +64,11 @@ public class ShoppingCartController {
 		if(!userId.isEmpty() && shoppingCart != null){
 			
 			final ShoppingCart cart = new ShoppingCart();
-			for(Product p : shoppingCart.getProducts())
+			for(Product p : shoppingCart.getProducts()){
+				p.setPriceValue(p.getPriceValue());
 				cart.add(p);
+			}
+				
 			
 			return cart;
 			
