@@ -15,22 +15,53 @@ public class ProductDAO {
 	private EntityManager manager;
 	
 	public void save(Product product){
-		manager.persist(product);
+		try{
+			manager.persist(product);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	public List<Product> list() {
-		if(manager != null)
-			return manager.createQuery("select distinct(p) from Product p", Product.class)
-		.getResultList();
-		else
+		try{
+			if(manager != null)
+				return manager.createQuery("SELECT distinct(p) FROM Product p", Product.class)
+			.getResultList();
+			else
+				return null;
+		}
+		catch(Exception e){
+			e.printStackTrace();
 			return null;
+		}
 	}
 	
 	public Product getById(int productId) {
-		if(manager != null)
-			return manager.find(Product.class, productId);
-		else
+		try{
+			if(manager != null)
+				return manager.find(Product.class, productId);
+			else
+				return null;
+		}
+		catch(Exception e){
+			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public List<Product> getSearchResult(String word) {
+		try{
+			if(manager != null)
+				return manager.createQuery("SELECT p FROM Product p WHERE p.name LIKE '%" + word +"%'", Product.class)
+			.getResultList();
+			else
+				return null;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

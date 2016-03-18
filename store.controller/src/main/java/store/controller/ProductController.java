@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import store.infrastructure.dao.product.ProductDAO;
 //import store.infrastructure.utils.Int32;
@@ -29,7 +28,7 @@ public class ProductController {
 	
 	protected final String shoopingPage = "products/productBuy";
 	protected final String consolesPage = "products/consoles";
-	protected final String serachPage = "products/productSearch";
+	protected final String searchPage = "products/productSearch";
 
 	@ResponseBody
 	@RequestMapping(value = "/mostsold", method = RequestMethod.GET)
@@ -48,46 +47,72 @@ public class ProductController {
 	
 	//@SuppressWarnings("restriction")
 	@RequestMapping("/{pageID}")
-	public ModelAndView getProductPage(@PathVariable(value="pageID") String id, 
+	public ViewModel getProductPage(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String code, HttpServletRequest request ) {
 		
-		if(!"show".equals(id)){
-			return null;
+		ViewModel mv = null;
+		
+		if("show".equals(id)){
+			
+			if(!code.isEmpty()){
+				mv = new ViewModel(shoopingPage, request);
+				mv.addObject("productId", code);
+				/*final int productId = Integer.parseInt(code);
+				final Product p = productDAO.getById(productId);
+				if(p != null){
+					mv.addObject("productId", p.getProductId());
+					//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
+				}*/
+			}
+			
+		} else if("search".equals(id)){
+			
+			if(!code.isEmpty()){
+				mv = new ViewModel(searchPage, request);
+				mv.addObject("word", code);
+				/*final List<Product> products = productDAO.getSearchResult(code);
+				if(code != null){
+					mv.addObject("productId", products);
+					//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
+				}*/
+			}
+			
 		}
 		
-		final ModelAndView mv = new ModelAndView(shoopingPage);
-		if(!code.isEmpty()){
-			final int productId = Integer.parseInt(code);
-			final Product p = productDAO.getById(productId);
-			if(p != null){
-				mv.addObject("productId", p.getProductId());
-				//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
-			}
-				
-		}
+		
+		
 		
 		return mv;
 	}
 		
 	
 	@RequestMapping("/pget/{pageID}")
-	public @ResponseBody Product getProduct(@PathVariable(value="pageID") String id, 
+	public @ResponseBody Object getProduct( @PathVariable(value="pageID") String id, 
 	                                 @RequestParam String product, HttpServletRequest request ) {
 		
-		if(!"p".equals(id)){
-			return null;
-		}
-		
-		if(!product.isEmpty()){
+		if("p".equals(id)){
+			int productId = 0; 
+			try{
+				productId = Integer.parseInt(product);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 			
-			int productId = Integer.parseInt(product);
-			Product p = productDAO.getById(productId);
+			final Product p = productDAO.getById(productId);
 			if(p != null){
 				p.setUrl("");
 				p.setPriceValue(p.getPriceValue());
 				return p;
 			}
-				
+		}
+		else if("s".equals(id)){
+			final List<Product> products = productDAO.getSearchResult(product);
+			return products;
+		}
+		
+		if(!product.isEmpty()){
+					
 		}
 		
 		return null;
@@ -95,7 +120,7 @@ public class ProductController {
 	
 	//Consoles
 	@RequestMapping("/category/{pageID}")
-	public ModelAndView getProductsByType(@PathVariable(value="pageID") String id, 
+	public ViewModel getProductsByType(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String type, HttpServletRequest request ) {
 		
 //		tipo.setValue(Integer);
@@ -103,7 +128,7 @@ public class ProductController {
 			return null;
 		}
 		
-		ModelAndView mv = new ModelAndView(shoopingPage);
+		ViewModel mv = new ViewModel(shoopingPage, request);
 		if(!type.isEmpty()){
 			final int productId = Integer.parseInt(type);
 			final Product p = productDAO.getById(productId);
@@ -119,15 +144,15 @@ public class ProductController {
 	}
 	
 	//Busca
-	@RequestMapping(value="/search/{pageID}", method=RequestMethod.GET)
-	public ModelAndView searchProduct(@PathVariable(value="pageID") String id, 
+	/*@RequestMapping(value="/search", method=RequestMethod.GET)
+	public ViewModelModel searchProduct(@PathVariable(value="pageID") String id, 
 	                                 @RequestParam String word, HttpServletRequest request ) {
 		
 		if(!"p".equals(id)){
 			return null;
 		}
 		
-		final ModelAndView mv = new ModelAndView(serachPage);
+		final ViewModelModel mv = new ViewModel(searchPage);
 		if(!word.isEmpty()){
 			final int productId = Integer.parseInt(word);
 			final Product p = productDAO.getById(productId);
@@ -139,7 +164,7 @@ public class ProductController {
 		}
 		
 		return mv;
-	}
+	}*/
 	
 
 }

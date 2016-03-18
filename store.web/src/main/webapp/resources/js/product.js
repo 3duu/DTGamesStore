@@ -30,7 +30,19 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     }
     
     
+    //var path = window.location.pathname;
+    var searchWord = $('#word').val();
+    if(searchWord != null && searchWord != undefined && searchWord != 0 && searchWord != ''){
+    	
+    	path = path.replace('search', '').replace('/products', '');
+    	$http.get(path + 'products/pget/s?product=' + searchWord).
+        then(function(response) {
+        	$scope.productsFinded = response.data;
+        }, function(response){
+        	alert('Erro ao obter dados');
+        });
+    	
+    }
+    
+     
 });
-
-
-

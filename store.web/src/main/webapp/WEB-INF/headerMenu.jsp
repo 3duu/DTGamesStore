@@ -9,7 +9,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">DT Games Store</a>
+	      <a class="navbar-brand" href="${urlBase}">DT Games Store</a>
 	    </div>
 	
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,7 +55,7 @@
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search" method="get" action="products/search">
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Buscar" name="word">
+	          <input type="text" class="form-control" placeholder="Buscar" name="code">
 	        </div>
 	        <button type="submit" class="btn btn-default">Buscar</button>
 	      </form>

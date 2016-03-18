@@ -1,5 +1,5 @@
 <input name="productId" value="{{product.productId}}" hidden="hidden" ng-model="product">
-	  <div class="col-sm-6 col-md-4">
+	  <div class="col-sm-6 col-md-4" ng-model="productId">
 	    <div class="thumbnail">
     	  <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController">
 	      	<img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width="180" height=130 ng-model="product.productImage">

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
+import store.controller.ViewModel;
 import store.infrastructure.dao.product.ProductDAO;
 import store.model.product.Product;
 
@@ -79,7 +80,7 @@ public class ShoppingCartController {
 	
 	@RequestMapping(value="/cart", method=RequestMethod.GET)
 	public  ModelAndView showCart(HttpServletRequest request ) {
-		ModelAndView mv = new ModelAndView(shoppingCartPage);
+		ModelAndView mv = new ViewModel(shoppingCartPage, request);
 		return mv;
 	}
 	

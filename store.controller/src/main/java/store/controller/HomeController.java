@@ -14,7 +14,7 @@ public class HomeController implements IHomeController {
 	protected final String indexPage = "home";
 	
 	@RequestMapping(value="/")
-	public String index(HttpServletRequest request) {
-		return indexPage;
+	public ViewModel index(HttpServletRequest request) {
+		return new ViewModel(indexPage, request);
 	}
 }
