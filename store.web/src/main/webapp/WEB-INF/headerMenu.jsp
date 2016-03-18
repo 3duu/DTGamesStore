@@ -1,3 +1,4 @@
+<header>
 <div align="center" >
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-static-top" >
 	  <div class="container-fluid">
@@ -81,5 +82,5 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 </nav>
-<div ></div>
 </div>
+</header>

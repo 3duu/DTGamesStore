@@ -9,7 +9,8 @@
   </head>
   <body ng-controller="HomeController" >
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
-    
+	<div>
+    <section class="body_section">
     <div id="MostSold" class=interface_class>
     
     	<div class="page-header">
@@ -22,9 +23,20 @@
 		</div>
    
    	</div>
-    <div id="Newest">
-    	
-    </div>
+    </section>
+    <aside class="side_section">
+    <div id="MoreCheap" class=interface_class>
     
+    	<div class="page-header">
+		  <h1>Mais Baratos <small>Top 10</small></h1>
+		</div>
+	    <div class="row">
+		 Informações aqui
+		</div>
+   
+   	</div>
+    </aside>
+    <%@include file="/WEB-INF/footer.jsp"%>
+    </div>
   </body>
 </html>

@@ -1,13 +1,36 @@
 @CHARSET "ISO-8859-1";
 
+@font-face{
+	font-family: 'MyFont';
+	src: url("");
+}
+
 body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
     background-color: rgb(230, 230, 230);
 }
 
 div.interface_class{
-	background-color: white;
-	margin: 4px;
-	padding: 8px;
+	margin: 2px;
+	padding: 4px;
 	border: rgba(0,0,0,.4);
+}
+
+section.body_section {
+	display: block;
+	width: 75%;
+	padding: 2px;
+	float: left;
+	background-color: white;
+}
+aside.side_section {
+	display: block;
+	width: 25%;
+	padding: 2px;
+	float: right;
+	background-color: white;
+}
+
+footer.footer_section {
+	clear: b
 }
