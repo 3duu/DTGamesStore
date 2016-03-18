@@ -53,7 +53,7 @@
 	          </ul>
 	        </li>
 	      </ul>
-	      <form class="navbar-form navbar-left" role="search" method="get" action="products/search">
+	      <form class="navbar-form navbar-left" role="search" method="get" action="${urlBase}/products/search">
 	        <div class="form-group">
 	          <input type="text" class="form-control" placeholder="Buscar" name="code">
 	        </div>
@@ -61,7 +61,7 @@
 	      </form>
 	      <ul class="nav navbar-nav navbar-right" ng-controller="UserController">
 		      <li ng-controller="ProductController">
-			      <a href="{{cartUrl}}">Carrinho <span class="badge" id="cartCount" ng-model="cartCount">${shoppingCart.count}</span> </a>
+			      <a href="${urlBase}/shopping/cart">Carrinho <span class="badge" id="cartCount" ng-model="cartCount">${shoppingCart.count}</span> </a>
 		      </li>
 	        <li><a href="#">Meus Pedidos</a></li>
 	        <li class="dropdown" id="userDropdown">

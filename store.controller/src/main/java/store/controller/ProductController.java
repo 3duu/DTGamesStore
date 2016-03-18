@@ -67,16 +67,8 @@ public class ProductController {
 			
 		} else if("search".equals(id)){
 			
-			if(!code.isEmpty()){
 				mv = new ViewModel(searchPage, request);
 				mv.addObject("word", code);
-				/*final List<Product> products = productDAO.getSearchResult(code);
-				if(code != null){
-					mv.addObject("productId", products);
-					//mv.addObject("productImage", new sun.misc.BASE64Encoder().encode(p.getProductImage()) );
-				}*/
-			}
-			
 		}
 		
 		
@@ -86,12 +78,13 @@ public class ProductController {
 	}
 		
 	
+	//Retorno de objeto
 	@RequestMapping("/pget/{pageID}")
 	public @ResponseBody Object getProduct( @PathVariable(value="pageID") String id, 
 	                                 @RequestParam String product, HttpServletRequest request ) {
 		
 		if("p".equals(id)){
-			int productId = 0; 
+			int productId = 0;
 			try{
 				productId = Integer.parseInt(product);
 			}
@@ -107,8 +100,17 @@ public class ProductController {
 			}
 		}
 		else if("s".equals(id)){
-			final List<Product> products = productDAO.getSearchResult(product);
-			return products;
+			List<Product> products = null;
+			if(!product.isEmpty())
+				products = productDAO.getSearchResult(product);
+			else
+				products = productDAO.list();
+			
+			
+			if(!products.isEmpty())
+				return products;
+			else
+				return "Nenhum resultado para a busca";
 		}
 		
 		if(!product.isEmpty()){

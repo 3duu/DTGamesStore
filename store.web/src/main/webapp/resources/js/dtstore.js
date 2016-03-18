@@ -47,7 +47,7 @@ app.controller('UserController',  function($scope, $http) {
 	
 	var userId = 1;
 	$scope.userUrl = '#';
-	$scope.cartUrl = shoppingCartPath;
+	//$scope.cartUrl = shoppingCartPath;
 	
 	$http({	
 	    url: 'user/data', 
