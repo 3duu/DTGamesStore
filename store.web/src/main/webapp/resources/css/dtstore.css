@@ -18,14 +18,11 @@ div.interface_class{
 
 section.body_section {
 	display: block;
-	width: 75%;
 	padding: 2px;
-	float: left;
 	background-color: white;
 }
 aside.side_section {
 	display: block;
-	width: 25%;
 	padding: 2px;
 	float: right;
 	background-color: white;

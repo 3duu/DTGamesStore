@@ -24,19 +24,19 @@
    
    	</div>
     </section>
-    <aside class="side_section">
-    <div id="MoreCheap" class=interface_class>
+<!--     <aside class="side_section"> -->
+<!--     <div id="MoreCheap" class=interface_class> -->
     
-    	<div class="page-header">
-		  <h1>Mais Baratos <small>Top 10</small></h1>
-		</div>
-	    <div class="row">
-		 Informações aqui
-		</div>
+<!--     	<div class="page-header"> -->
+<!-- 		  <h1>Mais Baratos <small>Top 10</small></h1> -->
+<!-- 		</div> -->
+<!-- 	    <div class="row"> -->
+<!-- 		 Informações aqui -->
+<!-- 		</div> -->
    
-   	</div>
-    </aside>
-    <%@include file="/WEB-INF/footer.jsp"%>
+<!--    	</div> -->
+<!--     </aside> -->
+<%--     <%@include file="/WEB-INF/footer.jsp"%> --%>
     </div>
   </body>
 </html>
