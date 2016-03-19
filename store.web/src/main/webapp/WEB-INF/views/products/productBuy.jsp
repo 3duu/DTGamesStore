@@ -8,14 +8,17 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.js" ></script>
     <title ng-controller="ProductController">DT Games Store - {{name}}</title>
 </head>
-<body ng-controller="ProductController">
-<div>
+<body>
+<div ng-controller="ProductController">
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
-	<section>
-	<div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{name}}</h3>
-      </div>
+	<section class="body_section">
+	
+		<div class="page-header">
+		  <h1>{{type}} - {{name}} <small>{{console}} </small></h1>
+		</div>
+		
+		<div class="panel panel-default"></div>
+	
       <div class="panel-body">
         
         <div class="row">
@@ -24,28 +27,26 @@
 			  <%@include file="/WEB-INF/views/products/productBigThumb.jsp" %>
 	   		</div>
 	   		
-	   		<div class="col-sm-6 col-md-4">
+	   		<div class="col-sm-6 col-md-4" ng-controller="ProductController">
 			    
 			    <ul class="list-group">
 				  <li class="list-group-item"><h3>{{name}}</h3></li>
 				  <li class="list-group-item"><h2>{{priceValue}}</h2></li>
-				  <li class="list-group-item">Plataforma:  {{console}}</li>
+				  <li class="list-group-item">Plataforma: <a href="#" target="_blank">{{console}}</a> </li>
 				  <li class="list-group-item">Descrição: {{description}}</li>
 				  <li class="list-group-item">
-					   <a href="{{productUrl}}{{product.productId}}" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
-			           <a href="#"  class="btn btn-default" role="button">Carrinho+ </a>
+					   <a href="" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
+			           <a href=""  class="btn btn-default" ng-click="addToCart($event)" role="button">Carrinho+ </a>
 				  </li>
 				</ul>
 			
 			     
-			   
 		    </div>
 		    
    		</div>
    		
       </div>
 	      
-	    </div>
 	    </section>
 	    <%@include file="/WEB-INF/footer.jsp"%>
 	</div>

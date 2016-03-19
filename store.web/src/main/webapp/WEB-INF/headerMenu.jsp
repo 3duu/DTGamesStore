@@ -10,7 +10,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="${urlBase}">DT Games Store</a>
+	      <a class="navbar-brand" id="urlBase" ng-model="urlBase" href="${urlBase}">DT Games Store</a>
 	    </div>
 	
 	    <!-- Collect the nav links, forms, and other content for toggling -->

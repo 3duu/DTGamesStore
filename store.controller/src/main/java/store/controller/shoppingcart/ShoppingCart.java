@@ -94,22 +94,22 @@ public class ShoppingCart {
 	}
 	
 	//????
-	public Map<Product, Integer> getCartInfo(){
-		
-		final Map<Product, Integer> cart = new HashMap<Product, Integer>();
-		
-		if(products == null)
-			products =  new ArrayList<Product>();
-		
-		//get same products
-		for(Product p : products){
-			if(cart.get(1) != null){
-				
-			}
-		}
-		
-		return cart;
-	}
+//	public Map<Product, Integer> getCartInfo(){
+//		
+//		final Map<Product, Integer> cart = new HashMap<Product, Integer>();
+//		
+//		if(products == null)
+//			products =  new ArrayList<Product>();
+//		
+//		//get same products
+//		for(Product p : products){
+//			if(cart.get(1) != null){
+//				
+//			}
+//		}
+//		
+//		return cart;
+//	}
 
 
 }

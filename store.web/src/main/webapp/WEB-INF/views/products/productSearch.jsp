@@ -11,7 +11,7 @@
 <body ng-controller="ProductController">
 <div>
 <%@include file="/WEB-INF/headerMenu.jsp"%>
-<section>
+<section class="body_section">
 	<input type="hidden" value="${word}" id="word" />
 	<div class="interface_class">
 		

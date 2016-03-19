@@ -18,7 +18,7 @@
 <!--         <h3 class="panel-title">Carrinho de Compras</h3> -->
 <!--       </div> -->
       
-      <section>
+      <section class="body_section">
       <div class="interface_class">
 		
 		<div class="page-header">

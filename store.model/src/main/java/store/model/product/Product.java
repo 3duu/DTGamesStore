@@ -38,6 +38,9 @@ public class Product {
 	@Column(columnDefinition="varbinary(MAX)")
 	private byte[] productImage;
 	
+	@Column
+	private String tags;
+	
 	//JPA Ignonar
 	@Transient
 	private String url;
@@ -110,6 +113,15 @@ public class Product {
 		this.productImage = productImage;
 	}
 	
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+	
 	public String getUrl() {
 		return url;
 	}
@@ -133,6 +145,7 @@ public class Product {
 			+ this.getConsole().name() 
 			+ " \n " + NumberFormat.getCurrencyInstance().format(this.getPriceValue());
 	}
+
 
 	
 
