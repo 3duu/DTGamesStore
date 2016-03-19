@@ -35,6 +35,10 @@ public class User {
 	@JoinColumn(name="addressId")
 	@ManyToOne(targetEntity = Address.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses;
+	
+	@JoinColumn(name="orderId")
+	@ManyToOne(targetEntity = Order.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Order> orders;
 
 	
 	//Getters and Setters
@@ -80,6 +84,4 @@ public class User {
 	}
 
 
-	
-	
 }

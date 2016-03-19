@@ -12,16 +12,16 @@ var urls =
 
 var app = angular.module('dtstore', []);
 var path = window.location.pathname;
-var productPath = "products/show?code=";
+//var productPath = "products/show?code=";
 var shoppingCartPath = "shopping/cart";
-var productBuyUrl = ('#' + path + productPath);
+//var productBuyUrl = ('#' + path + productPath);
 var productId;
 var token = '';
 
 
 app.controller('ProductController',  function($scope, $http) {
 	//url dos produtos
-    $scope.productUrl = productPath;
+    //$scope.productUrl = productPath;
     
 	  $scope.addToCart = function(clickEvent) {
 		  

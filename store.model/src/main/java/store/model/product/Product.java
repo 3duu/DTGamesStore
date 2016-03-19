@@ -22,6 +22,7 @@ public class Product {
 	
 	@Column(length=50, columnDefinition="varchar(50)")
 	private String name;
+	
 	private Double priceValue;
 	
 	@Column(length=255, columnDefinition="varchar(255)")
