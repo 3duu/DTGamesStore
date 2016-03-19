@@ -9,7 +9,9 @@
     <title ng-controller="ProductController">DT Games Store - {{searchParam}}</title>
 </head>
 <body ng-controller="ProductController">
+<div>
 <%@include file="/WEB-INF/headerMenu.jsp"%>
+<section>
 	<input type="hidden" value="${word}" id="word" />
 	<div class="interface_class">
 		
@@ -22,5 +24,8 @@
 		  </article>
 		</div>
 		
+	</div>
+</section>
+<%@include file="/WEB-INF/footer.jsp"%>
 	</div>
 </body>

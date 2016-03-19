@@ -9,7 +9,9 @@
     <title ng-controller="ProductController">DT Games Store - {{name}}</title>
 </head>
 <body ng-controller="ProductController">
+<div>
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
+	<section>
 	<div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">{{name}}</h3>
@@ -44,6 +46,8 @@
       </div>
 	      
 	    </div>
-	
+	    </section>
+	    <%@include file="/WEB-INF/footer.jsp"%>
+	</div>
 </body>
 </html>

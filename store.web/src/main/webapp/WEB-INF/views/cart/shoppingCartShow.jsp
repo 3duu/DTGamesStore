@@ -9,6 +9,7 @@
     <title ng-controller="ProductController">DT Games Store - Carrinho de Compras</title>
 </head>
 <body ng-controller="ShoppingController">
+<div>
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
 	<!-- 	<div ng-include="'WEB-INF/headerMenu.jsp'"></div> -->
 	
@@ -17,7 +18,7 @@
 <!--         <h3 class="panel-title">Carrinho de Compras</h3> -->
 <!--       </div> -->
       
-      
+      <section>
       <div class="interface_class">
 		
 		<div class="page-header">
@@ -74,6 +75,8 @@
       </div>
 	      <a href="#" ng-controller="ProductController" class="btn btn-primary" role="button"  id="btnComprar">Confirmar</a>
 	  </div>
-	
+	  </section>
+	  <%@include file="/WEB-INF/footer.jsp"%>
+	</div>
 </body>
 </html>
