@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
     <%@include file="/WEB-INF/header.jsp" %>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/shopping.js" ></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.js" ></script>
     <title ng-controller="ProductController">DT Games Store - Carrinho de Compras</title>
 </head>
 <body ng-controller="ShoppingController">

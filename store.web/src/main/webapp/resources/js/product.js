@@ -17,12 +17,9 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     	    method: "GET",
     	    params: {product: id}
     	 }).then(function(response) {
-         	$scope.name = response.data.name;
-         	$scope.priceValue = response.data.formatedValue;
-         	$scope.console = response.data.console;
-         	
-         	$scope.description = response.data.description;
-         	$scope.productImage = ('data:image/jpg;base64,' + response.data.productImage);
+    		$scope.product = response.data;
+         	//$scope.product.formatedValue = response.data.formatedValue;
+         	$scope.product.productImage = ('data:image/jpg;base64,' + response.data.productImage);
         	
          }, function(response) {
          	alert('Erro ao obter produtos');
@@ -43,6 +40,25 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
         });
     	
     }
-    
+      
+	  $scope.addToCart = function(clickEvent) {
+		  
+		  var product = {productId: $scope.product.productId, priceValue: $scope.product.priceValue}; //$scope.product;
+		  
+		  var homeLink = angular.element('#urlBase').attr('href');
+		  if(product != undefined){
+			  
+			  $http.post(homeLink + '/' + urls.shoppingPath, product)
+				 .then(function(response) {
+			  	$('#cartCount').text(response.data);
+			  	$scope.cartCount = response.data;
+			  }, function(response) {
+			  	alert('Erro ao adicionar ao carrinho');
+			  });
+			  
+		  }
+	  
+	  }
+
      
 });

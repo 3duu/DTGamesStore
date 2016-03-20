@@ -14,31 +14,6 @@ var productId;
 var token = '';
 
 
-app.controller('ProductController',  function($scope, $http) {
-	//url dos produtos
-    //$scope.productUrl = productPath;
-    
-	  $scope.addToCart = function(clickEvent) {
-		  
-		  var product = $scope.product;
-		  
-		  var homeLink = angular.element('#urlBase').attr('href');
-		  if(product != undefined){
-			  
-			  $http.post(homeLink + '/' + urls.shoppingPath, product)
-				 .then(function(response) {
-			  	$('#cartCount').text(response.data);
-			  	$scope.cartCount = response.data;
-			  }, function(response) {
-			  	alert('Erro ao adicionar ao carrinho');
-			  });
-			  
-		  }
-		  
-	};
-    
-});
-
 app.controller('UserController',  function($scope, $http) {
 	
 	var userId = 1;
