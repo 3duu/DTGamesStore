@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import store.controller.*;
 import store.controller.shoppingcart.ShoppingCart;
+import store.controller.user.Login;
 import store.controller.user.UserController;
 import store.infrastructure.dao.product.ProductDAO;
 
@@ -25,6 +26,7 @@ import store.infrastructure.dao.product.ProductDAO;
 	
 	//Components
 	ShoppingCart.class,
+	Login.class,
 })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	
@@ -37,6 +39,7 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setContentType(ViewConstants.MEDIA_TYPE_HTML);
 		
 		resolver.setExposedContextBeanNames("shoppingCart");
+		resolver.setExposedContextBeanNames("login");
 
 		return resolver;
 	}

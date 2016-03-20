@@ -10,7 +10,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" id="urlBase" ng-model="urlBase" href="${urlBase}">DT Games Store</a>
+	      <a class="navbar-brand" id="urlBase" ng-model="urlBase" href="${urlBase}">DT GAME STORE</a>
 	    </div>
 	
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,7 +76,7 @@
 	          </ul>
 	        </li>
 	        <li id="loginLink">
-		      <a href="{{userUrl}}">{{account}} </a>
+		      <a href="${urlBase}/user/login">{{account}} </a>
 	        </li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
