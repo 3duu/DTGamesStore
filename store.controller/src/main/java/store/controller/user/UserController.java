@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import store.controller.HomeController;
 import store.controller.ViewModel;
 import store.model.user.User;
 
@@ -20,19 +21,14 @@ public class UserController {
 	
 	protected final String loginPage = "users/login";
 	
-	@RequestMapping("/login")
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public ModelAndView getLoginPage(HttpServletRequest request) {
-
-		return new ViewModel(loginPage, request);
-		
+		return new ViewModel(loginPage, request);	
 	}
 	
-	@RequestMapping(value="/login/submit", method = RequestMethod.POST)
-	public ModelAndView doLogin(User user) {
-
-		ViewModel mv = null;
-		
-		return null;
+	@RequestMapping(value="/login", method = RequestMethod.POST)
+	public ViewModel doLogin(User user) {
+		return new ViewModel("redirect:" + HomeController.indexPage, null);
 	}
 	
 	@RequestMapping("/data/{pageID}")

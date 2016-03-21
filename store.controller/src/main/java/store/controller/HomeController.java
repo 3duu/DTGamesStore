@@ -11,7 +11,7 @@ import store.controller.interfaces.IHomeController;
 @Controller
 public class HomeController implements IHomeController {
 	
-	protected final String indexPage = "home";
+	public static final String indexPage = "home";
 	
 	@RequestMapping(value="/")
 	public ViewModel index(HttpServletRequest request) {
