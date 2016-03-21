@@ -17,10 +17,13 @@ import javax.persistence.ManyToOne;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import store.model.common.Address;
 
 
-@Entity(name="[User]")
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
 public class User implements UserDetails{
 	
 	/**
@@ -35,7 +38,7 @@ public class User implements UserDetails{
 	@Column(length=50, columnDefinition="varchar(50)")
 	private String name;
 	
-	@Column(length=50, columnDefinition="varchar(50)")
+	@Column(name="userName", length=50, columnDefinition="varchar(50)")
 	private String userName;
 
 	@Column(length=50, columnDefinition="varchar(50)")

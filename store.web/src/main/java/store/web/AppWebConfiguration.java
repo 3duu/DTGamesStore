@@ -11,6 +11,7 @@ import store.controller.shoppingcart.ShoppingCart;
 import store.controller.user.Login;
 import store.controller.user.UserController;
 import store.infrastructure.dao.product.ProductDAO;
+import store.infrastructure.dao.product.UserDAO;
 
 
 @EnableWebMvc
@@ -23,6 +24,7 @@ import store.infrastructure.dao.product.ProductDAO;
 	
 	//DAOs
 	ProductDAO.class,
+	UserDAO.class,
 	
 	//Components
 	ShoppingCart.class,
