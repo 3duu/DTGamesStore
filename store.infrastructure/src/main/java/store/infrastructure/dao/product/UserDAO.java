@@ -27,18 +27,25 @@ public class UserDAO implements UserDetailsService{
 	}
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		String jpql = "select u from User u where u.userName = :login";
-//		final List<User> users = manager.createQuery(jpql, User.class)
-//				.setParameter("login", username).getResultList();
-//
-//		if(users.isEmpty()){
-//			throw new UsernameNotFoundException("O usuário " + username + " não existe");
-//		}
+		final String jpql = "SELECT u FROM User u WHERE u.userName = :login";
+		List<User> users = null;
+		try{
+			users = manager.createQuery(jpql, User.class)
+					.setParameter("login", username).getResultList();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+		if(users == null || users.isEmpty()){
+			throw new UsernameNotFoundException("O usuário " + username + " não existe");
+		}
 		
-		User u = new User();
-		u.setUserName("eduu.porto@gmail.com");
-		u.setPassword("nemesis164");
-		return u; //users.get(0);
+//		User u = new User();
+//		u.setUserName("eduu.porto@gmail.com");
+//		u.setPassword("nemesis164");
+		
+		return users.get(0);
 	}
 	
 }

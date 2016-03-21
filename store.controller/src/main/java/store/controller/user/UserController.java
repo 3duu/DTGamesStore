@@ -2,6 +2,9 @@ package store.controller.user;
 
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,9 @@ import store.model.user.User;
 @RequestMapping("/user")
 public class UserController {
 	
+	@Autowired
+	private UserDetailsService users;
+	
 	protected final String loginPage = "users/login";
 	
 	@RequestMapping
@@ -32,7 +38,13 @@ public class UserController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public ViewModel doLogin(User user) {
-		return new ViewModel("redirect:" + HomeController.indexPage, null);
+		
+		User u = (User) users.loadUserByUsername(user.getUsername());
+		if(u != null){
+			if(u.getPassword().equals(user.getPassword()))
+				return new ViewModel("redirect:" + HomeController.indexPage, null);
+		}
+		return null;
 	}
 	
 	@RequestMapping(value="/account")
