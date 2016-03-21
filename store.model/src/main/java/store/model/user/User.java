@@ -1,6 +1,7 @@
 package store.model.user;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,18 +14,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import store.model.common.Address;
 
 
 @Entity(name="[User]")
-public class User {
+public class User implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3783444837711144238L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 	
 	@Column(length=50, columnDefinition="varchar(50)")
 	private String name;
+	
+	@Column(length=50, columnDefinition="varchar(50)")
+	private String userName;
+
+	@Column(length=50, columnDefinition="varchar(50)")
+	private String password;
 	
 	@Column(length=11, columnDefinition="varchar(11)")
 	private String cpf;
@@ -59,6 +74,14 @@ public class User {
 		this.name = name;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -81,6 +104,41 @@ public class User {
 
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
+	}
+
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return userName;
+	}
+
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 

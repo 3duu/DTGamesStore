@@ -27,15 +27,12 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value="/", method = RequestMethod.POST)
-	public ModelAndView doLogin(User user, HttpServletRequest request ) {
+	@RequestMapping(value="/login/submit", method = RequestMethod.POST)
+	public ModelAndView doLogin(User user) {
 
 		ViewModel mv = null;
-		if(user != null){
-			mv = new ViewModel(loginPage, request);
-		}
 		
-		return mv;
+		return null;
 	}
 	
 	@RequestMapping("/data/{pageID}")

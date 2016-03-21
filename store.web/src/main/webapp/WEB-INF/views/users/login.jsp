@@ -10,21 +10,20 @@
 </head>
 <body>
 <%@include file="/WEB-INF/headerMenu.jsp"%>
-<section>
-	<div class="container">
-
-      <form class="form-signin">
+<section class="body_section">
+	<div class="container" align="center">
+      <form class="form-signin" style="width: 34%;" action="${urlBase}/user/login/submit" method="post" role="login">
         <h2 class="form-signin-heading">Por favor faça o login</h2>
         <label for="inputEmail" class="sr-only">E-mail</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Endereço de E-mail" required autofocus>
+        <input type="email" name="userName" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="password" id="inputPassword" style="margin:5px;" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Lembrar-me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 40%;">Entrar</button>
       </form>
 
     </div> <!-- /container -->
