@@ -31,6 +31,11 @@ public class UserController {
 		return new ViewModel("redirect:" + HomeController.indexPage, null);
 	}
 	
+	@RequestMapping(value="/account")
+	public ViewModel getAccountManagement(HttpServletRequest request) {
+		return new ViewModel(HomeController.indexPage, request);
+	}
+	
 	@RequestMapping("/data/{pageID}")
 	public @ResponseBody Object getProduct( @PathVariable(value="pageID") String id, 
 	                                 @RequestParam String userId, HttpServletRequest request ) {
