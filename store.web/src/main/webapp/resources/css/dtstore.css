@@ -29,5 +29,12 @@ aside.side_section {
 }
 
 footer.footer_section {
-	clear: b
+	text-align: center;
+	margin: 2px;
+	padding: 4px;
+}
+
+img{
+	max-height: 100%;
+	max-width: 100%;
 }

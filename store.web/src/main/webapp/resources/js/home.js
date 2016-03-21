@@ -2,9 +2,10 @@
  * 
  */
 app.controller('HomeController', function($scope, $http) {
-    var path = window.location.pathname;
 
-    $http.get(path + 'products/mostsold').
+    var homeLink = angular.element('#urlBase').attr('href');
+
+    $http.get(homeLink + '/products/mostsold').
     then(function(response) {
     	$scope.mostsoldlist = response.data;
     }, function(response) {

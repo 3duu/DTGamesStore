@@ -12,7 +12,7 @@
 <%@include file="/WEB-INF/headerMenu.jsp"%>
 <section class="body_section">
 	<div class="container" align="center">
-      <form class="form-signin" style="width: 34%;"  method="post">
+      <form class="form-signin" style="width: 34%;" method="post">
         <h2 class="form-signin-heading">Por favor faça o login</h2>
         <label for="inputEmail" class="sr-only">E-mail</label>
         <input type="email" name="userName" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>

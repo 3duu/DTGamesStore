@@ -1,4 +1,4 @@
-<header>
+<header ng-app="dtstore">
 <div align="center" >
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-static-top" >
 	  <div class="container-fluid">
