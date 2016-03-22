@@ -28,7 +28,7 @@ public class JPAConfiguration {
 		{ 
 		  "store.model.common",
 		  "store.model.product",
-		  "store.model.user",
+		  "store.model.user"
 		});
 		JpaVendorAdapter vendorAdapter =
 		new HibernateJpaVendorAdapter();

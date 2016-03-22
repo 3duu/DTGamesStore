@@ -21,7 +21,7 @@ app.controller('UserController',  function($scope, $http) {
 	//$scope.cartUrl = shoppingCartPath;
 	var homeLink = angular.element('#urlBase').attr('href');
 	
-	$http({	
+	$http({
 	    url: homeLink + '/user/data', 
 	    method: 'GET',
 	    params: {userId: userId, sessionToken: token }

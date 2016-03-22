@@ -41,6 +41,7 @@ public class UserController {
 		
 		User u = (User) users.loadUserByUsername(user.getUsername());
 		if(u != null){
+			//Object ad = u.getAddresses().get(0);
 			if(u.getPassword().equals(user.getPassword()))
 				return new ViewModel("redirect:" + HomeController.indexPage, null);
 		}

@@ -32,6 +32,8 @@ public class UserDAO implements UserDetailsService{
 		try{
 			users = manager.createQuery(jpql, User.class)
 					.setParameter("login", username).getResultList();
+			
+			//Object o = manager.find(User.class, 1);
 		}
 		catch(Exception e){
 			e.printStackTrace();

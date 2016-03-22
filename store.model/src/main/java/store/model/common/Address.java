@@ -1,21 +1,32 @@
 package store.model.common;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import store.model.interfaces.IModel;
+import store.model.user.User;
 
 
 @Entity
+@Table(name="[Address]")
 public class Address implements IModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
+	
+	@JoinColumn(name="userId")
+	@ManyToOne(targetEntity = User.class, fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	private User user;
 	
 	@Column(columnDefinition="varchar(50)")
 	private String street;
@@ -27,7 +38,7 @@ public class Address implements IModel {
 	private String number;
 	
 	@Column(columnDefinition="varchar(100)")
-	private String City;
+	private String city;
 	
 	@Column(columnDefinition="char(2)")
 	private String uf;
@@ -74,12 +85,12 @@ public class Address implements IModel {
 
 
 	public String getCity() {
-		return City;
+		return city;
 	}
 
 
 	public void setCity(String city) {
-		City = city;
+		this.city = city;
 	}
 
 

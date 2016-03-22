@@ -1,6 +1,5 @@
 package store.model.user;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
@@ -13,8 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,22 +22,10 @@ import store.model.common.Address;
 
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
-@Entity(name="[User]")
-@Table(name="[User]")
+@Entity()
+@Table(name="[User]", schema="dbo")
 public class User implements UserDetails{
 	
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	/**
 	 * 
 	 */
@@ -55,35 +41,35 @@ public class User implements UserDetails{
 	@Column(name="userName", length=50, columnDefinition="varchar(50)")
 	private String userName;
 
-	@Column(length=50, columnDefinition="varchar(50)")
+	@Column(name="password", length=50, columnDefinition="varchar(50)")
 	private String password;
 	
-	@Column(length=11, columnDefinition="varchar(11)")
+	@Column(name="cpf", length=11, columnDefinition="varchar(11)")
 	private String cpf;
 	
-	@Column(columnDefinition="DateTime")
+	@Column(name="birthDate", columnDefinition="DateTime")
 	private Calendar birthDate;
 	
+	
 	@JoinColumn(name="addressId")
-	@ManyToOne(targetEntity = Address.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Address.class, fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Address> addresses;
 	
-	@JoinColumn(name="orderId")
-	@ManyToOne(targetEntity = Order.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="addressId")
+	@OneToMany(targetEntity = Order.class, fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Order> orders;
 	
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-
-	@ManyToMany(fetch = FetchType.EAGER)
-	private List<Role> roles = new ArrayList<Role>();
-
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	private List<Role> roles = new ArrayList<Role>();
 	
+//	public List<Role> getRoles() {
+//		return roles;
+//	}
+//
+//	public void setRoles(List<Role> roles) {
+//		this.roles = roles;
+//	}
+
 	//Getters and Setters
 	
 	public int getUserId() {
@@ -106,8 +92,20 @@ public class User implements UserDetails{
 		return userName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 	
 	public String getCpf() {
@@ -139,16 +137,17 @@ public class User implements UserDetails{
 		return null;
 	}
 
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return password;
-	}
+	
 
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return userName;
 	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
 		return true;

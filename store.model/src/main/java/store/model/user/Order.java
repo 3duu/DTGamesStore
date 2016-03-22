@@ -1,7 +1,5 @@
 package store.model.user;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,21 +9,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import store.model.product.Product;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
+@Table(name="[Order]")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
-	@JoinColumn(name="productId")
-	@ManyToOne(targetEntity = Product.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Product> products;
+//	@JoinColumn(name="productId")
+//	@ManyToOne(targetEntity = Product.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@ManyToMany(targetEntity = Product.class, fetch = FetchType.EAGER)
+//	private List<Product> products;
 	
+	@JoinColumn(name="userId")
+	@ManyToOne(targetEntity = User.class, fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	private User user;
+	
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Double getItemValue() {
+		return itemValue;
+	}
+
+	public void setItemValue(Double itemValue) {
+		this.itemValue = itemValue;
+	}
+
 	@Column
 	private Double itemValue;
 
