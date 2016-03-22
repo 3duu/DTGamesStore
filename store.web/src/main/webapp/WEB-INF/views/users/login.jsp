@@ -14,6 +14,7 @@
 	<div class="container" align="center">
       <form class="form-signin" style="width: 34%;" action="${urlBase}/user/login" method="post">
         <h2 class="form-signin-heading">Por favor faça o login</h2>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <label for="inputEmail" class="sr-only">E-mail</label>
         <input type="email" name="userName" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
@@ -25,7 +26,6 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 40%;">Entrar</button>
       </form>
-
     </div> <!-- /container -->
     </section>
     <%@include file="/WEB-INF/footer.jsp"%>

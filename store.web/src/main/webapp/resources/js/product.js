@@ -1,6 +1,18 @@
 /**
  * 
  */
+
+app.config(['$httpProvider', function ($httpProvider) {
+	
+	var _token =   $("meta[name='_csrf']").attr("content");
+	var _header =   $("meta[name='_csrf_header']").attr("content");
+	
+	if(_token == undefined || _header == undefined)
+		return;
+	
+    $httpProvider.defaults.headers.post[_header] = _token;
+}]);
+
 app.controller('ProductController', function($rootScope, $scope, $http, $routeParams, $route) {
     //$scope.message = 'Bem vindo a DT Store';
     var path = window.location.pathname;
@@ -38,27 +50,40 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
         }, function(response){
         	alert('Erro ao obter dados');
         });
-    	
     }
       
 	  $scope.addToCart = function(clickEvent) {
+		  
+		//var _token = angular.element('#csrf_token').val();
+		  var _token =   $("meta[name='_csrf']").attr("content"); //angular.alement('_csrf').attr("content");
+		  var _header =   $("meta[name='_csrf_header']").attr("content"); //angular.alement('_csrf_header').attr("content");
 		  
 		  var product = {productId: $scope.product.productId, priceValue: $scope.product.priceValue}; //$scope.product;
 		  
 		  var homeLink = angular.element('#urlBase').attr('href');
 		  if(product != undefined){
 			  
-			  $http.post(homeLink + '/' + urls.shoppingPath, product)
+//			  $http.post(
+//					  homeLink + '/' + urls.shoppingPath, 
+//					  product)
+			  $http({
+				    url: homeLink + '/' + urls.shoppingPath, 
+				    method: 'POST',
+			  		data: product,
+			  		//headers: {'Content-Type': _header, 'Cookie': _token}
+				 })
 				 .then(function(response) {
-			  	$('#cartCount').text(response.data);
+			  	//$('#cartCount').text();
+			  	angular.element('#cartCount').text(response.data);
 			  	$scope.cartCount = response.data;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
 			  
 		  }
-	  
 	  }
+	  
+	
 
      
 });

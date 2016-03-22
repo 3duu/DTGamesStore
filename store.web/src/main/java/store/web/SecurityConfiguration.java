@@ -30,12 +30,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 			.httpBasic()
-			.and().csrf().disable()
+			.and()//.csrf().disable()
 					.authorizeRequests()
 						.antMatchers("/products/**").permitAll()
 						.antMatchers("/shooping/**").permitAll()
 						.antMatchers("/users/**").permitAll()
-						.antMatchers(HttpMethod.POST, "/user/login/**").permitAll()
+						.antMatchers(HttpMethod.POST, "/products/**").denyAll()
 						.antMatchers(HttpMethod.POST, "/shooping/**").permitAll()
 						.antMatchers(HttpMethod.GET, "/user/**").permitAll()
 						.antMatchers("/user/account/**").authenticated()
