@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +14,11 @@
 <%@include file="/WEB-INF/headerMenu.jsp"%>
 <section class="body_section">
 	<div class="container" align="center">
-      <form class="form-signin" style="width: 34%;" action="${urlBase}/user/login" method="post">
+      <form:form cssClass="form-signin" style="width: 34%;" servletRelativeAction="${urlBase}/user/login" method="post">
         <h2 class="form-signin-heading">Por favor faça o login</h2>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+       <security:csrfInput/>
         <label for="inputEmail" class="sr-only">E-mail</label>
-        <input type="email" name="userName" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
+        <input type="email" name="username" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" name="password" id="inputPassword" style="margin:5px;" class="form-control" placeholder="Password" required>
         <div class="checkbox">
@@ -25,7 +27,7 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 40%;">Entrar</button>
-      </form>
+      </form:form>
     </div> <!-- /container -->
     </section>
     <%@include file="/WEB-INF/footer.jsp"%>
