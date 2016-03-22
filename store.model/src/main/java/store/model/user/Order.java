@@ -15,17 +15,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-@Table(name="[Order]")
+@Table(name="[Order]", schema="[dbo]")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
-//	@JoinColumn(name="productId")
-//	@ManyToOne(targetEntity = Product.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	@ManyToMany(targetEntity = Product.class, fetch = FetchType.EAGER)
-//	private List<Product> products;
+	@Column
+	private Double itemValue;
 	
 	@JoinColumn(name="userId")
 	@ManyToOne(targetEntity = User.class, fetch=FetchType.LAZY, cascade = CascadeType.ALL)
@@ -54,8 +52,5 @@ public class Order {
 	public void setItemValue(Double itemValue) {
 		this.itemValue = itemValue;
 	}
-
-	@Column
-	private Double itemValue;
 
 }
