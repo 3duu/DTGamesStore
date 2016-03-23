@@ -4634,8 +4634,10 @@ fieldset[disabled] .navbar-default .btn-link:hover,
 fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
+
 .navbar-inverse {
-  background-color: #222;
+  /*background-color: #222;*/
+  background: linear-gradient(black, rgb(29, 29, 29));
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {

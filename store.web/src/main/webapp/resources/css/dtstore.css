@@ -32,6 +32,8 @@ footer.footer_section {
 	text-align: center;
 	margin: 2px;
 	padding: 4px;
+	background: linear-gradient(black, rgb(29, 29, 29));
+	color: rgb(180, 180, 180);
 }
 
 img{
