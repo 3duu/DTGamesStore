@@ -36,7 +36,7 @@ public class ProductController {
 
 		if (productDAO != null) {
 			// mais vendidos
-			final List<Product> products = productDAO.list();
+			final List<Product> products = productDAO.listTop10MostSold();
 			for(Product p : products)
 				p.setPriceValue(p.getPriceValue());
 			return products;
@@ -104,7 +104,7 @@ public class ProductController {
 			if(!product.isEmpty())
 				products = productDAO.getSearchResult(product);
 			else
-				products = productDAO.list();
+				products = productDAO.listAll();
 			
 			
 			if(!products.isEmpty())

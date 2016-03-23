@@ -23,7 +23,7 @@ public class ProductDAO {
 		}
 	}
 
-	public List<Product> list() {
+	public List<Product> listAll() {
 		try{
 			if(manager != null)
 				return manager.createQuery("SELECT distinct(p) FROM Product p", Product.class)
@@ -51,11 +51,46 @@ public class ProductDAO {
 	}
 	
 	public List<Product> getSearchResult(String word) {
+		
+		final String statement = "SELECT p FROM Product p WHERE p.name LIKE :word OR p.tags LIKE :word";
+		
 		try{
 			if(manager != null)
-				return manager.createQuery("SELECT p FROM Product p WHERE p.name LIKE '%" + word +"%'", Product.class)
+				return manager.createQuery(statement, Product.class)
+						.setParameter("word", "%" + word + "%").getResultList();
+			else
+				return null;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Product> listMostSold() {
+		final String statement = "SELECT p FROM Product p ORDER BY p.sells desc";
+		try{
+			if(manager != null)
+				return manager.createQuery(statement, Product.class)
 			.getResultList();
 			else
+				return null;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Product> listTop10MostSold() {
+		final String statement = "SELECT TOP 10 * FROM Product p ORDER BY p.sells desc";
+		try{
+			if(manager != null) {
+				@SuppressWarnings("unchecked")
+				List<Product> resultList = (List<Product>)manager.createNativeQuery(statement, Product.class)
+			.getResultList();
+				return resultList;
+			} else
 				return null;
 		}
 		catch(Exception e){

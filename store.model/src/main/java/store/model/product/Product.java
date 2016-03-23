@@ -41,6 +41,9 @@ public class Product {
 	@Column
 	private String tags;
 	
+	@Column
+	private int sells;
+
 	//JPA Ignonar
 	@Transient
 	private String url;
@@ -120,6 +123,14 @@ public class Product {
 
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+	
+	public int getSells() {
+		return sells;
+	}
+
+	public void setSells(int sells) {
+		this.sells = sells;
 	}
 	
 	public String getUrl() {
