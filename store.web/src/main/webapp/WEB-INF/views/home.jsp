@@ -12,6 +12,11 @@
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
 	<div>
     <section class="body_section">
+    
+<!--     <div data-pagination="" data-num-pages="numPages()"  -->
+<!-- 	  data-current-page="currentPage" data-max-size="maxSize"   -->
+<!-- 	  data-boundary-links="true"></div> -->
+    
     <div id="MostSold" class=interface_class>
     
     	<div class="page-header">

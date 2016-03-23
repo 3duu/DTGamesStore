@@ -66,3 +66,17 @@ app.controller('UserController',  function($scope, $http) {
 //		  });
 //	  };
 //});
+
+//core da loja
+var dtCORE = {
+		parameters : {},
+		map        : {},
+		
+		//functions
+		isEmpty: function(variable){
+			if(variable != null && variable != undefined && variable != 0 && variable != ''){
+				return false;
+			}
+			return true;
+		}
+};

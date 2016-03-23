@@ -14,21 +14,19 @@ app.config(['$httpProvider', function ($httpProvider) {
 }]);
 
 app.controller('ProductController', function($rootScope, $scope, $http, $routeParams, $route) {
-    //$scope.message = 'Bem vindo a DT Store';
-    var path = window.location.pathname;
-    var id = $("#productId").val();
 
-    //url dos produtos
-    //$scope.productUrl = (productBuyUrl + $scope.productId);
+	//Get most sold products
+    var path = angular.element('#urlBase').attr('href');
+    var id = angular.element("#productId").val();
 
-    
-    if(id != null && id != undefined && id != 0 && id != ''){
+    if(!dtCORE.isEmpty(id)){
     	
     	$http({	
-    	    url: path.replace("/show", "/") + "pget/p?",
-    	    method: "GET",
+    	    url: path + '/products/pget/p',
+    	    method: 'GET',
     	    params: {product: id}
     	 }).then(function(response) {
+    		 
     		$scope.product = response.data;
          	//$scope.product.formatedValue = response.data.formatedValue;
          	$scope.product.productImage = ('data:image/jpg;base64,' + response.data.productImage);
@@ -40,8 +38,9 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     
     
     //var path = window.location.pathname;
-    var searchWord = $('#word').val();
-    if(searchWord != null && searchWord != undefined && searchWord != 0 && searchWord != ''){
+    var searchWord = angular.element('#word').val();
+    
+    if(!dtCORE.isEmpty(searchWord)){
     	
     	path = path.replace('search', '').replace('/products', '');
     	$http.get(path + 'products/pget/s?product=' + searchWord).
@@ -54,23 +53,15 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
       
 	  $scope.addToCart = function(clickEvent) {
 		  
-		//var _token = angular.element('#csrf_token').val();
-		  var _token =   $("meta[name='_csrf']").attr("content"); //angular.alement('_csrf').attr("content");
-		  var _header =   $("meta[name='_csrf_header']").attr("content"); //angular.alement('_csrf_header').attr("content");
-		  
 		  var product = {productId: $scope.product.productId, priceValue: $scope.product.priceValue}; //$scope.product;
 		  
 		  var homeLink = angular.element('#urlBase').attr('href');
 		  if(product != undefined){
 			  
-//			  $http.post(
-//					  homeLink + '/' + urls.shoppingPath, 
-//					  product)
 			  $http({
 				    url: homeLink + '/' + urls.shoppingPath, 
 				    method: 'POST',
-			  		data: product,
-			  		//headers: {'Content-Type': _header, 'Cookie': _token}
+			  		data: product
 				 })
 				 .then(function(response) {
 			  	//$('#cartCount').text();
@@ -83,7 +74,6 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
 		  }
 	  }
 	  
-	
-
+	  
      
 });

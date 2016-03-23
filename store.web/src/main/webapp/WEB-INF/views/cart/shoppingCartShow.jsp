@@ -10,7 +10,6 @@
     <title ng-controller="ProductController">DT Games Store - Carrinho de Compras</title>
 </head>
 <body ng-controller="ShoppingController">
-<div>
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
 	<!-- 	<div ng-include="'WEB-INF/headerMenu.jsp'"></div> -->
 	
@@ -44,7 +43,7 @@
 		    </tr>
 		    <tr ng-repeat="product in cartProducts">
 		    	<td align="center">
-			    		<a href="{{productUrl}}{{product.productId}}" style="line-height:100px" ng-controller="ProductController">
+			    		<a href="${urlBase}/products/show?code={{product.productId}}" style="line-height:100px" ng-controller="ProductController">
 			      			<img src="data:image/jpg;base64,{{product.productImage}}" alt="..." width="75" height="100" ng-model="product.productImage">
 			      		</a>
 		    	</td>
@@ -78,6 +77,5 @@
 	  </div>
 	  </section>
 	  <%@include file="/WEB-INF/footer.jsp"%>
-	</div>
 </body>
 </html>
