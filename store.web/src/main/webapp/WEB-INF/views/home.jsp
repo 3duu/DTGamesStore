@@ -37,7 +37,7 @@
    
 <!--    	</div> -->
 <!--     </aside> -->
-    <%@include file="/WEB-INF/footer.jsp"%>
     </div>
+    <%@include file="/WEB-INF/footer.jsp"%>
   </body>
 </html>
