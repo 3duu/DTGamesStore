@@ -1,6 +1,9 @@
 package store.controller.shoppingcart;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -40,10 +43,13 @@ public class ShoppingCartController {
 			Product item = productDAO.getById(product.getProductId());
 			shoppingCart.add(item);
 			
+			final List<Product> cartProducts = new ArrayList<Product>();
 			for(Product p : shoppingCart.getProducts()){
-				p.setProductImage(null);
-				p.setDescription(null);
-				p.setStockQuant(null);
+				Product tempProduct = new Product();
+				tempProduct.setProductId(p.getProductId());
+				tempProduct.setName(p.getName());
+				tempProduct.setPriceValue(p.getPriceValue());
+				cartProducts.add(tempProduct);
 			}
 		}
 		
