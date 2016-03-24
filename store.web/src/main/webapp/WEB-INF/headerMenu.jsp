@@ -1,3 +1,5 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<security:authentication property="principal" var="user"/>
 <header ng-app="dtstore">
 <div align="center" >
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-static-top" >
@@ -76,7 +78,18 @@
 	          </ul>
 	        </li>
 	        <li id="loginLink">
-		      <a href="${urlBase}/user/login">{{account}} </a>
+	        
+	        <security:authorize access="isAuthenticated()">
+			<security:authentication property="principal" var="user"/>
+				<div>
+					<a href="${urlBase}/user/login">{{account}} Olá ${user.name} </a>
+				</div>
+				<div>
+					<a href="${urlBase}/user/login">{{account}} Olá ${user.name} </a>
+				</div>
+			</security:authorize>
+			<a href="${urlBase}/user/login">{{account}} </a>
+	         
 	        </li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->

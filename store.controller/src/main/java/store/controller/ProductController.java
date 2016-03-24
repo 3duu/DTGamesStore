@@ -113,10 +113,6 @@ public class ProductController {
 				return "Nenhum resultado para a busca";
 		}
 		
-		if(!product.isEmpty()){
-					
-		}
-		
 		return null;
 	}
 	

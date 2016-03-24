@@ -23,7 +23,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import store.model.common.Address;
 
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity()
 @Table(name="[User]", schema="[dbo]")
 public class User implements UserDetails{
@@ -142,14 +141,11 @@ public class User implements UserDetails{
 	}
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	
-
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return userName;
 	}
 
@@ -158,17 +154,14 @@ public class User implements UserDetails{
 	}
 	
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

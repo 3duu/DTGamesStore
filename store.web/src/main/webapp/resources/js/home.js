@@ -35,6 +35,8 @@ app.controller('HomeController', function($scope, $http) {
     	////////////////////////////////////////
     	$scope.mostsoldlist = response.data;
     	
+    	dtCORE.pagination.doPaging(response.data);
+    	
     }, function(response) {
     	alert('Erro ao obter dados');
     });

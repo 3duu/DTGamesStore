@@ -2,7 +2,6 @@ package store.controller.user;
 
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -37,13 +36,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public ViewModel doLogin(User user) {
+	public ViewModel doLogin(User user, HttpServletRequest request) {
 		
-		User u = (User) users.loadUserByUsername(user.getUsername());
+		final User u = (User) users.loadUserByUsername(user.getUsername());
 		if(u != null){
-			//Object ad = u.getAddresses().get(0);
 			if(u.getPassword().equals(user.getPassword()))
-				return new ViewModel("redirect:" + HomeController.indexPage, null);
+				return new ViewModel("redirect:" + HomeController.indexPage, request);
 		}
 		return null;
 	}

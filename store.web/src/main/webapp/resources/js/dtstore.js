@@ -78,5 +78,20 @@ var dtCORE = {
 				return false;
 			}
 			return true;
-		}
+		},
+		pagination: {itemsPerPage: 10, doPaging:function(data){
+			
+				var returnData = [{}];
+				var count = 0;
+				var page = 0;
+				for(var i=0;i<data.length;i++){
+					returnData[page].push(data[i]);
+					if(count > 5){
+						page++;
+						count = 0;
+					}		
+				}
+			
+				return returnData;
+		}}
 };

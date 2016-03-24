@@ -23,9 +23,10 @@
 		  <h1>Mais Vendidos <small>Top 10</small></h1>
 		</div>
 	    <div class="row">
-		  <article ng-repeat="product in mostsoldlist">
+		  	<article ng-repeat="product in mostsoldlist">
+<!-- 			<article dir-paginate='product in mostsoldlist | filter:searchBar | orderBy:orderProp | limitTo:limit | itemsPerPage: limit'> -->
 		  	<%@include file="/WEB-INF/views/products/productSmallThumb.jsp" %>
-		  </article>
+			</article>
 		</div>
    
    	</div>
