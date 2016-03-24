@@ -58,9 +58,19 @@ app.controller('ShoppingController', function($scope, $http) {
 			  	angular.element('#cartCount').text(response.data);
 			  	$scope.cartCount = response.data;
 			  	
-			  	$('#cartCount').text(response.data);
-			  	p.productCount++;
-			  	p.productTotal += p.priceValue;
+			  	var productCount = 0;
+			  	var totalValue = 0;
+				 for(var i = 0; i < response.data.length; i++){
+					 if(p.productId == response.data[i].productId){
+						 productCount++;
+						 totalValue += p.priceValue;
+					 }
+						 
+				 }
+			  	
+			  	$('#cartCount').text(response.data.length);
+			  	p.productCount = productCount;
+			  	p.productTotal = totalValue;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
@@ -84,13 +94,23 @@ app.controller('ShoppingController', function($scope, $http) {
 			  		data: product
 				 })
 				 .then(function(response) {
-			  	//$('#cartCount').text();
+
 			  	angular.element('#cartCount').text(response.data);
 			  	$scope.cartCount = response.data;
 			  	
-			  	$('#cartCount').text(response.data);
-			  	p.productCount++;
-			  	p.productTotal += p.priceValue;
+			  	var productCount = 0;
+			  	var totalValue = 0;
+				 for(var i = 0; i < response.data.length; i++){
+					 if(p.productId == response.data[i].productId){
+						 productCount++;
+						 totalValue += p.priceValue;
+					 }
+						 
+				 }
+			  	
+			  	angular.element('#cartCount').text(response.data.length);
+			  	p.productCount = productCount;
+			  	p.productTotal = totalValue;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
