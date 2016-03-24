@@ -28,7 +28,6 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     	 }).then(function(response) {
     		 
     		$scope.product = response.data;
-         	//$scope.product.formatedValue = response.data.formatedValue;
          	$scope.product.productImage = ('data:image/jpg;base64,' + response.data.productImage);
         	
          }, function(response) {
@@ -39,24 +38,25 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
     
     //var path = window.location.pathname;
     var searchWord = angular.element('#word').val();
-    
     if(!dtCORE.isEmpty(searchWord)){
     	
-    	path = path.replace('search', '').replace('/products', '');
-    	$http.get(path + 'products/pget/s?product=' + searchWord).
-        then(function(response) {
+    	$http({
+    	    url: path + '/products/pget/s',
+    	    method: 'GET',
+    	    params: {product: searchWord}
+    	 }).then(function(response) {
         	$scope.productsFinded = response.data;
         }, function(response){
         	alert('Erro ao obter dados');
         });
     }
       
-	  $scope.addToCart = function(clickEvent) {
-		  
-		  var product = {productId: $scope.product.productId, priceValue: $scope.product.priceValue}; //$scope.product;
+	  $scope.addToCart = function(p) {
 		  
 		  var homeLink = angular.element('#urlBase').attr('href');
-		  if(product != undefined){
+		  if(p != undefined){
+			  
+			  var product = {productId: p.productId, priceValue: p.priceValue};
 			  
 			  $http({
 				    url: homeLink + '/' + urls.shoppingPath, 
@@ -64,13 +64,18 @@ app.controller('ProductController', function($rootScope, $scope, $http, $routePa
 			  		data: product
 				 })
 				 .then(function(response) {
-			  	//$('#cartCount').text();
-			  	angular.element('#cartCount').text(response.data);
-			  	$scope.cartCount = response.data;
+			  	
+					 var productCount = 0;
+					 for(var i = 0; i < response.data.length; i++){
+						 if(p.productId == response.data[i].productId)
+							 productCount++;
+					 }
+					 
+			  	angular.element('#cartCount').text(response.data.length);
+			  	$scope.cartCount = response.data.length;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
-			  });
-			  
+			  }); 
 		  }
 	  }
 	  

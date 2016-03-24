@@ -17,7 +17,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
-	private int stockQuant;
+	private Integer stockQuant;
 	
 	@Column(length=50, columnDefinition="varchar(50)")
 	private String name;
@@ -63,11 +63,11 @@ public class Product {
 		this.productId = productId;
 	}
 	
-	public int getStockQuant() {
+	public Integer getStockQuant() {
 		return stockQuant;
 	}
 	
-	public void setStockQuant(int stockQuant) {
+	public void setStockQuant(Integer stockQuant) {
 		this.stockQuant = stockQuant;
 	}
 	

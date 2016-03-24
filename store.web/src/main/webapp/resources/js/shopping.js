@@ -4,12 +4,13 @@
 app.controller('ShoppingController', function($scope, $http) {
 
 	//Verificar carrinho de compras
-    var userId = 1;
+    //var userId = 1;
+    var homeLink = angular.element('#urlBase').attr('href');
     
     $http({	
-	    url: urls.cartInfo, 
-	    method: "GET",
-	    params: {userId: userId}
+	    url: homeLink + '/shopping/' + urls.cartInfo, 
+	    method: "GET"
+	    //params: {userId: userId}
 	 })
 	 .then(function(response) {
     	
@@ -32,7 +33,7 @@ app.controller('ShoppingController', function($scope, $http) {
 			 
 			 if(cartData.length != 0)
 				 $scope.cartProducts = cartData;
-			 
+		
 		 }
 		 
     }, function(response) {
@@ -40,17 +41,26 @@ app.controller('ShoppingController', function($scope, $http) {
     });
     
     
-    $scope.newCartItem = function(clickEvent) {
+    $scope.newCartItem = function(p) {
 		  
-		  var product = $scope.product;
-		  
-		  if(product != undefined){
+    	var homeLink = angular.element('#urlBase').attr('href');
+		  if(p != undefined){
 			  
-			  $http.post("additem", product)
+			  var product = {productId: p.productId, priceValue: p.priceValue};
+			  
+			  $http({
+				    url: homeLink + '/' + urls.shoppingPath, 
+				    method: 'POST',
+			  		data: product
+				 })
 				 .then(function(response) {
+			  	//$('#cartCount').text();
+			  	angular.element('#cartCount').text(response.data);
+			  	$scope.cartCount = response.data;
+			  	
 			  	$('#cartCount').text(response.data);
-			  	$scope.product.productCount++;
-			  	$scope.product.productTotal += $scope.product.priceValue;
+			  	p.productCount++;
+			  	p.productTotal += p.priceValue;
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
@@ -59,8 +69,36 @@ app.controller('ShoppingController', function($scope, $http) {
 		  
 	};
 	
-	$scope.removeCartItem = function(clickEvent) {
+	
+	
+	$scope.removeCartItem = function(p) {
 		  
+		var homeLink = angular.element('#urlBase').attr('href');
+		  if(p != undefined){
+			  
+			  var product = {productId: p.productId, priceValue: p.priceValue};
+			  
+			  $http({
+				    url: homeLink + '/' + urls.shoppingPath, 
+				    method: 'POST',
+			  		data: product
+				 })
+				 .then(function(response) {
+			  	//$('#cartCount').text();
+			  	angular.element('#cartCount').text(response.data);
+			  	$scope.cartCount = response.data;
+			  	
+			  	$('#cartCount').text(response.data);
+			  	p.productCount++;
+			  	p.productTotal += p.priceValue;
+			  }, function(response) {
+			  	alert('Erro ao adicionar ao carrinho');
+			  });
+			  
+		  }
+		
+		
+		
 		  var product = $scope.product;
 		  
 		  if(product != undefined){

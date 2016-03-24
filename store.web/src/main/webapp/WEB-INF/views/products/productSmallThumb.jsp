@@ -12,7 +12,7 @@
 	    <div ng-controller="ProductController">
 	    <p>
 	    <a href="${urlBase}/products/show?code={{product.productId}}" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
-	    <a href=""  class="btn btn-default" ng-click="addToCart($event)" role="button">Carrinho+ </a>
+	    <a href=""  class="btn btn-default" ng-click="addToCart(product)" role="button">Carrinho+ </a>
 	    </p>
 	    </div>
 	</div>

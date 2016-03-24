@@ -5,7 +5,6 @@
   <head>
     <%@include file="/WEB-INF/header.jsp" %>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/home.js" ></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.js" ></script>
     <title>DT Games Store</title>
   </head>
   <body ng-controller="HomeController" >

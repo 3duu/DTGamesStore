@@ -36,7 +36,7 @@
 				  <li class="list-group-item">Descrição: {{product.description}}</li>
 				  <li class="list-group-item">
 					   <a href="" class="btn btn-primary" role="button"  id="btnComprar">Comprar </a> 
-			           <a href=""  class="btn btn-default" ng-click="addToCart($event)" role="button">Carrinho+ </a>
+			           <a href=""  class="btn btn-default" ng-click="addToCart(product)" role="button">Carrinho+ </a>
 				  </li>
 				</ul>
 			

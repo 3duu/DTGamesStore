@@ -5,8 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
     <%@include file="/WEB-INF/header.jsp" %>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/shopping.js" ></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.js" ></script>
     <title ng-controller="ProductController">DT Games Store - Carrinho de Compras</title>
 </head>
 <body ng-controller="ShoppingController">
@@ -50,14 +48,14 @@
 		    	<td align="center">
 		    		<h4 class="list-group-item-heading" style="line-height:100px">{{product.name}}</h4>	    	
 		    	</td>
-		    	<td ng-controller="ShoppingController" align="center">
+		    	<td align="center">
 		    	
 		    		<div style="line-height:100px">
-			    		<button class="btn btn-primary"  ng-click="newCartItem($event)">
+			    		<button class="btn btn-primary"  ng-click="newCartItem(product)">
 						  <i class="icon-user icon-white"></i>+
 						</button>
-			    			<input type="text" value="{{product.productCount}}" style="width: 30px;height: 34px" maxlength="3"/>
-		    			<button class="btn btn-primary" ng-click="removeCartItem($event)">
+			    			<label style="width: 30px;height: 34px" ng-bind="product.productCount"></label>
+		    			<button class="btn btn-primary" ng-click="removeCartItem(product)">
 						  <i class="icon-user icon-white"></i>-
 						</button>
 					</div>

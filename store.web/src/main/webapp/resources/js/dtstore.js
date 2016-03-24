@@ -22,7 +22,7 @@ app.controller('UserController',  function($scope, $http) {
 	var homeLink = angular.element('#urlBase').attr('href');
 	
 	$http({
-	    url: homeLink + '/user/data', 
+	    url: homeLink + '/user/data',
 	    method: 'GET',
 	    params: {userId: userId, sessionToken: token }
 	 })
@@ -43,6 +43,21 @@ app.controller('UserController',  function($scope, $http) {
     	$scope.account = 'Fazer Login';
     	$('#userDropdown').remove();
     	//element.remove();
+    });
+	
+	$http({	
+	    url: homeLink + '/shopping/cartcount', 
+	    method: "GET"
+	 })
+	 .then(function(response) {
+    	
+    	if(response.data){
+    		angular.element('#cartCount').text(response.data);
+   		 	$scope.cartCount = response.data.length;
+    	}
+    		
+    }, function(response) {
+    	alert('Erro ao recuperar informações do carrinho')
     });
     
 	//$scope.$apply()
@@ -71,6 +86,7 @@ app.controller('UserController',  function($scope, $http) {
 var dtCORE = {
 		parameters : {},
 		map        : {},
+		url: {home: angular.element('#urlBase').attr('href')},
 		
 		//functions
 		isEmpty: function(variable){

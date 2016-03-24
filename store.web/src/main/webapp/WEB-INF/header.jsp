@@ -7,6 +7,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/lib/bootstrap/js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/lib/angular/angular.min.js" ></script>  
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/dtstore.js" ></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.js" ></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/shopping.js" ></script> 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">

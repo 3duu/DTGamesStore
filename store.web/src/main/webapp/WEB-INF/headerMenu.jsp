@@ -64,7 +64,7 @@
 	      </form>
 	      <ul class="nav navbar-nav navbar-right" ng-controller="UserController">
 		      <li ng-controller="ProductController">
-			      <a href="${urlBase}/shopping/cart">Carrinho <span class="badge" id="cartCount" ng-model="cartCount">${shoppingCart.count}</span> </a>
+			      <a href="${urlBase}/shopping/cart">Carrinho <span class="badge" id="cartCount" ng-bind="shoppingCart.count"></span> </a>
 		      </li>
 	        <li><a href="${urlBase}/user/account">Meus Pedidos</a></li>
 	        <li class="dropdown" id="userDropdown">
