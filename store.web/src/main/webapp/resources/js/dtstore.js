@@ -27,7 +27,6 @@ app.config(['$httpProvider', function ($httpProvider) {
 
 app.controller('UserController',  function($scope, $http) {
 	
-	var userId = 1;
 	$scope.userUrl = '#';
 	//$scope.cartUrl = shoppingCartPath;
 	var homeLink = angular.element('#urlBase').attr('href');
@@ -35,24 +34,24 @@ app.controller('UserController',  function($scope, $http) {
 	$http({
 	    url: homeLink + '/user/data',
 	    method: 'GET',
-	    params: {userId: userId, sessionToken: token }
+	    //params: {userId: userId, sessionToken: token }
 	 })
 	 .then(function(response) {
     	
-    	if(response.data.name != ''){
-    		$('#loginLink').remove();
-    		$scope.account = 'Minha conta';
+    	if(dtCORE.isEmpty(response.data)){		
+    		angular.element('#userDropdown').remove();
+    		$scope.account = 'Fazer Login';
     	}
     	else{
-    		$scope.account = 'Fazer Login';
-    		$('#userDropdown').remove();
+    		$scope.account = response.data.name;
+    		angular.element('#loginLink').remove();
     	}
     		
-    	$scope.account = response.data;
+    	//$scope.accountData = response.data;
     }, function(response) {
     	//alert('Impossível validar sessão');
     	$scope.account = 'Fazer Login';
-    	$('#userDropdown').remove();
+    	angular.element('#userDropdown').remove();
     	//element.remove();
     });
 	

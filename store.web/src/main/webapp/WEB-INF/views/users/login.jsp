@@ -18,7 +18,7 @@
         <h2 class="form-signin-heading">Por favor faça o login</h2>
        <security:csrfInput/>
         <label for="inputEmail" class="sr-only">E-mail</label>
-        <input type="email" name="username" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
+        <input type="email" name="userName" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" name="password" id="inputPassword" style="margin:5px;" class="form-control" placeholder="Password" required>
         <div class="checkbox">

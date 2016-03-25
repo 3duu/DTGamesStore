@@ -5,9 +5,13 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
+import store.model.user.User;
+
 @Component
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Login {
+	
+	private User user;
 	private String username;
 	private String userToken;
 	private String userPassword;
@@ -30,5 +34,11 @@ public class Login {
 	}
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

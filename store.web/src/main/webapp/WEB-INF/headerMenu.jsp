@@ -68,7 +68,7 @@
 		      </li>
 	        <li><a href="${urlBase}/user/account">Meus Pedidos</a></li>
 	        <li class="dropdown" id="userDropdown">
-	          <a href="${urlBase}/user/account" id="userAccount" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{account}} <span class="caret"></span></a>
+	          <a href="${urlBase}/user/account" id="userAccount" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-bind="account"> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Dados cadastrais</a></li>
 	            <li><a href="#">Meus pedidos</a></li>

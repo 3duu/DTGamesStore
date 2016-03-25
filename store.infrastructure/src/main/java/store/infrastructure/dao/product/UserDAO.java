@@ -29,6 +29,8 @@ public class UserDAO implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		final String jpql = "SELECT u FROM User u WHERE u.userName = :login";
 		List<User> users = null;
+		if(username == null)
+			throw new UsernameNotFoundException("Erro eu fazer login");
 		try{
 			users = manager.createQuery(jpql, User.class)
 					.setParameter("login", username).getResultList();
