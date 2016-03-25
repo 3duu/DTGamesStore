@@ -2,17 +2,6 @@
  * 
  */
 
-app.config(['$httpProvider', function ($httpProvider) {
-	
-	var _token =   $("meta[name='_csrf']").attr("content");
-	var _header =   $("meta[name='_csrf_header']").attr("content");
-	
-	if(_token == undefined || _header == undefined)
-		return;
-	
-    $httpProvider.defaults.headers.post[_header] = _token;
-}]);
-
 app.controller('ProductController', function($rootScope, $scope, $http, $routeParams, $route) {
 
 	//Get most sold products

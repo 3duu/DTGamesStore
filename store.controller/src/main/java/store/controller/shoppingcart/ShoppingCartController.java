@@ -38,18 +38,26 @@ public class ShoppingCartController {
 	}
 	
 	@RequestMapping(value="/additem", method=RequestMethod.POST)
-		public @ResponseBody Object add( @RequestBody Product product, HttpServletRequest request ){
+	public @ResponseBody List<Product> add( @RequestBody Product product, HttpServletRequest request ){
+		
 		if(product != null && product.getProductId() != 0){
 			Product item = productDAO.getById(product.getProductId());
-			shoppingCart.add(item);
-			
-			final List<Product> cartProducts = new ArrayList<Product>();
-			for(Product p : shoppingCart.getProducts()){
-				Product tempProduct = new Product();
-				tempProduct.setProductId(p.getProductId());
-				tempProduct.setName(p.getName());
-				tempProduct.setPriceValue(p.getPriceValue());
-				cartProducts.add(tempProduct);
+			if(item != null){
+				
+				shoppingCart.add(item);
+				List<Product> cartProducts = new ArrayList<Product>();
+				
+				for(Product p : shoppingCart.getProducts()){
+					Product tempProduct = new Product();
+					tempProduct.setProductId(p.getProductId());
+					tempProduct.setName(p.getName());
+					tempProduct.setPriceValue(p.getPriceValue());
+					tempProduct.setSells(p.getSells());
+					cartProducts.add(tempProduct);
+				}
+				
+				return cartProducts;
+				
 			}
 		}
 		
@@ -57,14 +65,30 @@ public class ShoppingCartController {
 	}
 	
 	@RequestMapping(value="/removeitem", method=RequestMethod.POST)
-	public @ResponseBody int remove( @RequestBody Product product, HttpServletRequest request){
-	if(product != null && product.getProductId() != 0){
-		Product item = productDAO.getById(product.getProductId());
-		shoppingCart.remove(item);
+	public @ResponseBody List<Product> remove( @RequestBody Product product, HttpServletRequest request){
+		if(product != null && product.getProductId() != 0){
+			
+			if(product != null){
+				
+				shoppingCart.remove(product);
+				List<Product> cartProducts = new ArrayList<Product>();
+				
+				for(Product p : shoppingCart.getProducts()){
+					Product tempProduct = new Product();
+					tempProduct.setProductId(p.getProductId());
+					tempProduct.setName(p.getName());
+					tempProduct.setPriceValue(p.getPriceValue());
+					tempProduct.setSells(p.getSells());
+					cartProducts.add(tempProduct);
+				}
+				
+				return cartProducts;
+				
+			}
+		}
+		
+		return shoppingCart.getProducts();
 	}
-	
-	return shoppingCart.getCount();
-}
 	
 	@RequestMapping(value="/cartinfo", method=RequestMethod.GET)
 	public @ResponseBody ShoppingCart getCart(/* @RequestParam String userId,*/ HttpServletRequest request  ) {

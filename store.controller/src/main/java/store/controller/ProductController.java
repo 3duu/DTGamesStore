@@ -94,7 +94,6 @@ public class ProductController {
 			
 			final Product p = productDAO.getById(productId);
 			if(p != null){
-				p.setUrl("");
 				p.setPriceValue(p.getPriceValue());
 				return p;
 			}

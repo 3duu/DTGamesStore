@@ -89,7 +89,7 @@ app.controller('ShoppingController', function($scope, $http) {
 			  var product = {productId: p.productId, priceValue: p.priceValue};
 			  
 			  $http({
-				    url: homeLink + '/' + urls.shoppingPath, 
+				    url: homeLink + '/shopping/removeitem', 
 				    method: 'POST',
 			  		data: product
 				 })
@@ -104,8 +104,7 @@ app.controller('ShoppingController', function($scope, $http) {
 					 if(p.productId == response.data[i].productId){
 						 productCount++;
 						 totalValue += p.priceValue;
-					 }
-						 
+					 }	 
 				 }
 			  	
 			  	angular.element('#cartCount').text(response.data.length);

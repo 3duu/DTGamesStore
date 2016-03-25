@@ -2,7 +2,7 @@
 <security:authentication property="principal" var="user"/>
 <header ng-app="dtstore">
 <div align="center" >
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-static-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-static-top" ng-controller="UserController">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
@@ -62,9 +62,9 @@
 	        </div>
 	        <button type="submit" class="btn btn-default">Buscar</button>
 	      </form>
-	      <ul class="nav navbar-nav navbar-right" ng-controller="UserController">
-		      <li ng-controller="ProductController">
-			      <a href="${urlBase}/shopping/cart">Carrinho <span class="badge" id="cartCount" ng-bind="shoppingCart.count"></span> </a>
+	      <ul class="nav navbar-nav navbar-right">
+		      <li>
+			      <a href="${urlBase}/shopping/cart">Carrinho <span class="badge" id="cartCount" ng-bind="shoppingCart.count">{{cartCount}}</span> </a>
 		      </li>
 	        <li><a href="${urlBase}/user/account">Meus Pedidos</a></li>
 	        <li class="dropdown" id="userDropdown">

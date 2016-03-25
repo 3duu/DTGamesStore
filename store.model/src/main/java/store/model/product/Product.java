@@ -43,17 +43,10 @@ public class Product {
 	@Column
 	private int sells;
 
-	//JPA Ignonar
-	@Transient
-	private String url;
 	
 	@Transient
 	private String formatedValue;
 	
-	
-	public Product(){
-		
-	}
 	
 	public int getProductId() {
 		return productId;
@@ -132,17 +125,8 @@ public class Product {
 		this.sells = sells;
 	}
 	
-	public String getUrl() {
-		return url;
-	}
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
-	
 	//rules
-	
 	public String getFormatedValue() {
 		this.formatedValue = NumberFormat.getCurrencyInstance().format(this.priceValue);
 		return formatedValue;
@@ -150,10 +134,16 @@ public class Product {
 
 	public String getProductDescription(){
 		this.setPriceValue(this.priceValue);
-		return this.getType().name() + " " 
-			+ this.getName() + " - " 
-			+ this.getConsole().name() 
-			+ " \n " + NumberFormat.getCurrencyInstance().format(this.getPriceValue());
+		if(this.type != null && this.console != null && this.name != null){
+			
+			return this.type.name() + " " 
+					+ this.name + " - " 
+					+ this.console.name() 
+					+ " \n " + NumberFormat.getCurrencyInstance().format(this.getPriceValue());
+			
+		}
+		
+		return "";
 	}
 
 

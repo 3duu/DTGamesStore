@@ -5,7 +5,7 @@
 var urls = 
 {
 		cartInfo: 'cartinfo',
-		shoppingPath: 'shopping/additem',
+		shoppingPath: 'shopping/additem'
 };
 
 var app = angular.module('dtstore', []);
@@ -13,6 +13,17 @@ var path = window.location.pathname;
 var productId;
 var token = '';
 
+
+app.config(['$httpProvider', function ($httpProvider) {
+	
+	var _token =   $("meta[name='_csrf']").attr("content");
+	var _header =   $("meta[name='_csrf_header']").attr("content");
+	
+	if(_token == undefined || _header == undefined)
+		return;
+	
+    $httpProvider.defaults.headers.post[_header] = _token;
+}]);
 
 app.controller('UserController',  function($scope, $http) {
 	
@@ -45,6 +56,7 @@ app.controller('UserController',  function($scope, $http) {
     	//element.remove();
     });
 	
+	//Get cart number
 	$http({	
 	    url: homeLink + '/shopping/cartcount', 
 	    method: "GET"
@@ -53,7 +65,7 @@ app.controller('UserController',  function($scope, $http) {
     	
     	if(response.data){
     		angular.element('#cartCount').text(response.data);
-   		 	$scope.cartCount = response.data.length;
+   		 	//$scope.cartCount = response.data;
     	}
     		
     }, function(response) {
@@ -64,23 +76,6 @@ app.controller('UserController',  function($scope, $http) {
 	
 });
 
-
-
-//app.controller('EventController',  function($scope, $http) {
-//	  /*
-//	   * expose the event object to the scope
-//	   */
-//	  $scope.clickMe = function(clickEvent) {
-//		  $http.get(path + 'products/shopping').
-//		  then(function(response) {
-//		  	$scope.mostsoldlist = response.data;
-//		  	//data = response;
-//		  	
-//		  }, function(response) {
-//		  	alert('Erro');
-//		  });
-//	  };
-//});
 
 //core da loja
 var dtCORE = {
@@ -95,7 +90,7 @@ var dtCORE = {
 			}
 			return true;
 		},
-		pagination: {itemsPerPage: 10, doPaging:function(data){
+		/*pagination: {itemsPerPage: 10, doPaging:function(data){
 			
 				var returnData = [{}];
 				var count = 0;
@@ -109,5 +104,5 @@ var dtCORE = {
 				}
 			
 				return returnData;
-		}}
+		}}*/
 };
