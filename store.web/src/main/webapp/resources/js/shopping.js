@@ -26,7 +26,7 @@ app.controller('ShoppingController', function($scope, $http) {
 				 if(!contais){
 					 cartData[cartIndex] = response.data.products[i];
 				 	 cartData[cartIndex].productCount = response.data.productCount[response.data.products[i].productId];
-				 	 cartData[cartIndex].productTotal = response.data.products[i].priceValue * cartData[cartIndex].productCount;
+				 	 cartData[cartIndex].productTotal = 'R$ ' + (response.data.products[i].priceValue * cartData[cartIndex].productCount).formatMoney(2, '.', ',');
 				 	 cartIndex++;
 				 }	 
 			 }
@@ -71,6 +71,7 @@ app.controller('ShoppingController', function($scope, $http) {
 			  	$('#cartCount').text(response.data.length);
 			  	p.productCount = productCount;
 			  	p.productTotal = totalValue;
+			  	p.productTotal = 'R$ ' + p.productTotal.formatMoney(2, '.', ',');
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
@@ -110,29 +111,13 @@ app.controller('ShoppingController', function($scope, $http) {
 			  	angular.element('#cartCount').text(response.data.length);
 			  	p.productCount = productCount;
 			  	p.productTotal = totalValue;
+			  	p.productTotal = 'R$ ' + p.productTotal.formatMoney(2, '.', ',');
 			  }, function(response) {
 			  	alert('Erro ao adicionar ao carrinho');
 			  });
 			  
 		  }
 		
-		
-		
-		  var product = $scope.product;
-		  
-		  if(product != undefined){
-			  
-			  $http.post("removeitem", product)
-				 .then(function(response) {
-			  	$('#cartCount').text(response.data);
-			  	$scope.product.productCount--;
-			  	$scope.shoppingCart.count--;
-			  	$scope.product.productTotal -= $scope.product.priceValue;
-			  }, function(response) {
-			  	alert('Erro ao remove item do carrinho');
-			  });
-			  
-		  }
 		  
 	};
     

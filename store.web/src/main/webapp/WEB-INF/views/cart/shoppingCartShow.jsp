@@ -33,11 +33,11 @@
 		  <!-- Table -->
 		  <table class="table" ng-controller="ShoppingController">
 		  	<tr align="center">
-		    	<th width="200">  Produto(s) no carrinho  </th>
-		    	<th width="200">  </th>
-		    	<th width="200">  Qtde. de produtos  </th>
-		    	<th width="200">  Valor Unitário  </th>
-		    	<th width="200">  Valor Total  </th>
+		    	<th width="200" align="center">  Produto(s) no carrinho  </th>
+		    	<th width="200" align="center">  </th>
+		    	<th width="200" align="center">  Qtde. de produtos  </th>
+		    	<th width="200" align="center">  Valor Unitário  </th>
+		    	<th width="200" align="center">  Valor Total  </th>
 		    </tr>
 		    <tr ng-repeat="product in cartProducts">
 		    	<td align="center">
