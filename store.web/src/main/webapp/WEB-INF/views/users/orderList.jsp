@@ -5,16 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
     <%@include file="/WEB-INF/header.jsp" %>
-    <title>DT Games Store - Carrinho de Compras</title>
+    <title>DT Games Store - Meus Pedidos</title>
 </head>
 <body ng-controller="ShoppingController">
 	<%@include file="/WEB-INF/headerMenu.jsp"%>
-	<!-- 	<div ng-include="'WEB-INF/headerMenu.jsp'"></div> -->
-	
-	
-<!--       <div class="panel-heading"> -->
-<!--         <h3 class="panel-title">Carrinho de Compras</h3> -->
-<!--       </div> -->
       
       <section class="body_section">
       <div class="interface_class">

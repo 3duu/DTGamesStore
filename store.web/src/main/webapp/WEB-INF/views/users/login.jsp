@@ -12,13 +12,14 @@
 </head>
 <body>
 <%@include file="/WEB-INF/headerMenu.jsp"%>
-<section class="body_section">
+<section class="body_section" >
 	<div class="container" align="center">
-      <form:form cssClass="form-signin" style="width: 34%;" servletRelativeAction="${urlBase}/user/login" method="post">
+      <form:form cssClass="form-signin" style="width: 34%;" servletRelativeAction="${urlBase}/user/login" method="post" ng-controller="UserController">
         <h2 class="form-signin-heading">Por favor faça o login</h2>
        <security:csrfInput/>
         <label for="inputEmail" class="sr-only">E-mail</label>
-        <input type="email" name="userName" id="inputEmail" style="margin: 5px;" class="form-control" placeholder="Endereço de E-mail" required autofocus>
+        <input type="email" name="userName" id="inputEmail" style="margin: 5px;" ng-bind="username" class="form-control" placeholder="Endereço de E-mail" required autofocus/>
+        <input type="hidden" name="username" id="hiddenEmail" ng-bind="username"/>
         <label for="inputPassword" class="sr-only">Senha</label>
         <input type="password" name="password" id="inputPassword" style="margin:5px;" class="form-control" placeholder="Password" required>
         <div class="checkbox">
