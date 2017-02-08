@@ -35,8 +35,10 @@ public class Access {
 			}
 		}
 		
+		//jdbc:mysql://localhost:3306/teste_crud
+		
 		if(!ip.isEmpty())
-			connectionString = String.format("jdbc:mysql://%s;//games;", ip);
+			connectionString = String.format("jdbc:mysql://%s", ip);
 	}
 	
 	/**

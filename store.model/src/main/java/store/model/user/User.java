@@ -33,7 +33,7 @@ public class User implements UserDetails{
 	private static final long serialVersionUID = 3783444837711144238L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	
 	@Column(length=50, columnDefinition="varchar(50)")

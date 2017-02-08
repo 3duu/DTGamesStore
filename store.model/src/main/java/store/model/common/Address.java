@@ -17,11 +17,11 @@ import store.model.user.User;
 
 
 @Entity
-@Table(name="[Address]")
+//@Table(name="[Address]")
 public class Address implements IModel {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int addressId;
 	
 	@JoinColumn(name="userId")

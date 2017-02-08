@@ -29,7 +29,7 @@
 		<spring-framework.version>3.2.3.RELEASE</spring-framework.version>
 		<org.springframework.security-version>4.0.0.M2</org.springframework.security-version>
 
-		<!-- Hibernate / JPA -->
+			<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
 
 		<!-- Logging -->
@@ -55,10 +55,15 @@
 		<version>${spring-framework.version}</version>
 	</dependency>
 	
+<!-- 	<dependency> -->
+<!-- 		<groupId>org.springframework.security</groupId> -->
+<!-- 		<artifactId>spring-security-web</artifactId> -->
+<!-- 		<version>${org.springframework.security-version}</version> -->
+<!-- 	</dependency> -->
 	<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${org.springframework.security-version}</version>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-core</artifactId>
+		<version>${org.springframework.security-version}</version>
 	</dependency>
 	
 	<!-- Hibernate -->
@@ -96,7 +101,6 @@
 <!-- 		    <artifactId>sqljdbc4</artifactId> -->
 <!-- 		    <version>4.0</version> -->
 <!-- 		</dependency> -->
-
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
