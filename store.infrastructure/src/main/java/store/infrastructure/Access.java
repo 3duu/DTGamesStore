@@ -16,7 +16,7 @@ public class Access {
 	 * 
 	 */
 	public Access(){
-		Path path = Paths.get("C:\\Java\\dbconfig.cfg");
+		Path path = Paths.get("home\\Java\\dbconfig.cfg");
 		if(Files.exists(path)){
 			List<String> dados = null;
 			try {
