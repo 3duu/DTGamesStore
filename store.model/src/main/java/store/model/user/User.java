@@ -24,7 +24,7 @@ import store.model.common.Address;
 
 
 @Entity()
-@Table(name="[User]", schema="[dbo]")
+@Table(name="Users")
 public class User implements UserDetails{
 	
 	/**

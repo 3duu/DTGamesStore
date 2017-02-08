@@ -17,7 +17,7 @@ import store.model.user.User;
 
 
 @Entity
-//@Table(name="[Address]")
+@Table(name="Addresses")
 public class Address implements IModel {
 	
 	@Id

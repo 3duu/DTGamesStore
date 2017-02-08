@@ -26,7 +26,7 @@ public class ProductDAO {
 	public List<Product> listAll() {
 		try{
 			if(manager != null)
-				return manager.createQuery("SELECT distinct(p) FROM Product p", Product.class)
+				return manager.createQuery("SELECT distinct(p) FROM Products p", Product.class)
 			.getResultList();
 			else
 				return null;
@@ -83,7 +83,7 @@ public class ProductDAO {
 	}
 	
 	public List<Product> listTop10MostSold() {
-		final String statement = "SELECT TOP 10 * FROM Product p ORDER BY p.sells desc";
+		final String statement = "SELECT * FROM Products p ORDER BY p.sells DESC LIMIT 10";
 		try{
 			if(manager != null) {
 				@SuppressWarnings("unchecked")

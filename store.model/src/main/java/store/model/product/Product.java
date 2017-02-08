@@ -8,16 +8,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
+@Table(name="Products")
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int productId;
-	private Integer stockQuant;
+	
+	@Column
+	private int stockQuant;
 	
 	@Column(length=50, columnDefinition="varchar(50)")
 	private String name;
@@ -34,7 +38,7 @@ public class Product {
 	private TargetConsole console;
 	
 	@Lob
-	@Column(columnDefinition="varbinary(MAX)")
+	@Column(columnDefinition="longblob")
 	private byte[] productImage;
 	
 	@Column

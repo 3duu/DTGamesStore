@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-@Table(name="[Order]", schema="[dbo]")
+@Table(name="Orders")
 public class Order {
 	
 	@Id

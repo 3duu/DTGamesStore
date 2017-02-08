@@ -7,13 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewModel extends ModelAndView{
 	public ViewModel(String viewName, HttpServletRequest request){
 		this.setViewName(viewName);
-		if(request != null)
-			this.addObject("urlBase", request.getRequestURL().toString().replace(request.getRequestURI(), request.getContextPath()));
+		
 		try {
-			throw new Exception("Url base não pode ser montada!");
+			if(request != null)
+				this.addObject("urlBase", request.getRequestURL().toString().replace(request.getRequestURI(), request.getContextPath()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			//throw new Exception("Url base não pode ser montada!");
 		}
 	}
 }
