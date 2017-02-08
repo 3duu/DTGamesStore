@@ -6,17 +6,30 @@
   <packaging>pom</packaging>
   <name>DTGamesStore</name>
   
+  <properties>
+  	<!-- Spring -->
+	<spring-framework.version>3.2.3.RELEASE</spring-framework.version>
+	<org.springframework.security-version>4.0.0.M2</org.springframework.security-version>
+  </properties>
   
-<!--   <dependencyManagement> -->
-<!-- 	  <dependencies> -->
+  
+  <dependencyManagement>
+	  <dependencies>
 			
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-context</artifactId> -->
-<!-- 			<version>${spring-framework.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 	</dependencies> -->
-<!--   </dependencyManagement> -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework.security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework.security-version}</version>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+  
+  		
   
   <modules>
   	<module>store.controller</module>
