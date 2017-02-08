@@ -41,7 +41,7 @@ public class JPAConfiguration {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource =
 		new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		dataSource.setDriverClassName(Access.mySqlDriver);
 		dataSource.setUrl(access.connectionString);
 		dataSource.setUsername( access.getUser() );
 		dataSource.setPassword( access.getPassword() );
@@ -53,7 +53,7 @@ public class JPAConfiguration {
 		properties.setProperty("hibernate.hbm2ddl.auto",
 		"update");
 		properties.setProperty("hibernate.dialect",
-		"org.hibernate.dialect.SQLServerDialect");
+		"org.hibernate.dialect.MySQLDialect");
 		properties.setProperty("hibernate.show_sql", "true");
 		return properties;
 	}

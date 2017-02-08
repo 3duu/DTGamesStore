@@ -11,12 +11,14 @@ public class Access {
 	private String user;
 	private String password;
 	protected String connectionString;
+	protected final static String sqlServerDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	protected final static String mySqlDriver = "com.mysql.jdbc.Driver";
 	
 	/**
 	 * 
 	 */
 	public Access(){
-		Path path = Paths.get("home\\Java\\dbconfig.cfg");
+		Path path = Paths.get("/home/eduardo/Java/dbconfig.cfg");
 		if(Files.exists(path)){
 			List<String> dados = null;
 			try {
@@ -34,7 +36,7 @@ public class Access {
 		}
 		
 		if(!ip.isEmpty())
-			connectionString = String.format("jdbc:sqlserver://%s;databaseName=games;", ip);
+			connectionString = String.format("jdbc:mysql://%s;//games;", ip);
 	}
 	
 	/**
